@@ -68,11 +68,11 @@ const ProductCardComponent = ({
         <LazyImage
           alt={product.name}
           className="transition duration-700 group-hover:scale-105"
-          sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw"
           src={product.image}
         />
         {product.badge ? (
-          <span className="absolute left-2 top-2 z-10 max-w-[calc(100%-3.5rem)] rounded-full border border-gold/45 bg-gold/92 px-2 py-1 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-navy shadow-luxury backdrop-blur sm:left-4 sm:top-4 sm:max-w-[calc(100%-5rem)] sm:px-3 sm:text-xs sm:tracking-[0.14em]">
+          <span className="absolute left-1.5 top-1.5 z-10 max-w-[calc(100%-3rem)] rounded-full border border-gold/45 bg-gold/92 px-1.5 py-0.5 text-[0.52rem] font-bold uppercase leading-tight tracking-[0.06em] text-navy shadow-luxury backdrop-blur [overflow-wrap:anywhere] min-[360px]:left-2 min-[360px]:top-2 min-[360px]:px-2 min-[360px]:py-1 min-[360px]:text-[0.58rem] sm:left-4 sm:top-4 sm:max-w-[calc(100%-5rem)] sm:px-3 sm:text-xs sm:tracking-[0.14em]">
             {product.badge}
           </span>
         ) : null}
@@ -80,7 +80,7 @@ const ProductCardComponent = ({
           aria-label={isFavorite ? `Remove ${product.name} from favorites` : `Save ${product.name}`}
           aria-pressed={isFavorite}
           className={cx(
-            'focus-ring absolute right-2 top-2 z-20 grid size-8 place-items-center rounded-full border bg-surface/95 shadow-luxury backdrop-blur transition sm:right-4 sm:top-4 sm:size-10',
+            'focus-ring absolute right-1.5 top-1.5 z-20 grid size-8 place-items-center rounded-full border bg-surface/95 shadow-luxury backdrop-blur transition min-[360px]:right-2 min-[360px]:top-2 sm:right-4 sm:top-4 sm:size-10',
             isFavorite
               ? 'border-catalog bg-light-blue text-catalog'
               : 'border-white/70 text-ink hover:border-catalog hover:text-catalog',
@@ -94,17 +94,17 @@ const ProductCardComponent = ({
           />
         </button>
       </div>
-      <div className="flex flex-1 flex-col p-3 sm:p-5">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+      <div className="flex flex-1 flex-col p-2 min-[360px]:p-2.5 sm:p-5">
+        <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
           <div className="min-w-0">
-            <p className="inline-flex max-w-full break-words rounded-full bg-navy px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-white sm:text-[0.65rem] sm:tracking-[0.12em]">
+            <p className="inline-flex max-w-full break-words rounded-full bg-navy px-1.5 py-0.5 text-[0.5rem] font-bold uppercase leading-tight tracking-[0.04em] text-white min-[360px]:px-2 min-[360px]:text-[0.55rem] sm:px-2.5 sm:py-1 sm:text-[0.65rem] sm:tracking-[0.12em]">
               {product.category}
             </p>
-            <h3 className="mt-2 break-words font-display text-base font-bold leading-tight text-navy sm:text-xl">
+            <h3 className="mt-1.5 break-words font-display text-[0.9rem] font-bold leading-[1.15] text-navy [overflow-wrap:anywhere] min-[360px]:text-[0.95rem] sm:mt-2 sm:text-xl sm:leading-tight">
               {product.name}
             </h3>
           </div>
-          <p className="shrink-0 rounded-full border border-gold/40 bg-gold/12 px-2.5 py-1 text-xs font-bold text-gold-deep sm:text-sm">
+          <p className="w-fit max-w-full shrink-0 rounded-full border border-gold/40 bg-gold/12 px-1.5 py-0.5 text-[0.62rem] font-bold leading-tight text-gold-deep [overflow-wrap:anywhere] min-[360px]:px-2 min-[360px]:text-[0.68rem] sm:px-2.5 sm:py-1 sm:text-sm">
             {product.priceUnit || product.variants
               ? formatCartPrice(selectedPrice, product.priceUnit)
               : formatCurrency(selectedPrice)}
@@ -112,8 +112,8 @@ const ProductCardComponent = ({
         </div>
         <p className="mt-3 hidden text-sm text-muted md:block">{product.description}</p>
         {product.variants && product.variants.length > 0 ? (
-          <div className="mt-3">
-            <p className="mb-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-muted">
+          <div className="mt-2.5 sm:mt-3">
+            <p className="mb-1.5 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-muted sm:mb-2 sm:text-[0.65rem] sm:tracking-[0.12em]">
               Choose option
             </p>
             <div aria-label={`${product.name} options`} className="flex flex-wrap gap-1.5">
@@ -121,7 +121,7 @@ const ProductCardComponent = ({
                 <button
                   aria-pressed={selectedVariant === variant.label}
                   className={cx(
-                    'focus-ring rounded-full border px-3 py-1.5 text-left text-[0.68rem] font-bold leading-tight transition',
+                    'focus-ring max-w-full whitespace-normal rounded-full border px-1.5 py-1.5 text-left text-[0.56rem] font-bold leading-tight transition [overflow-wrap:anywhere] min-[360px]:px-2 min-[360px]:text-[0.6rem] sm:px-3 sm:text-[0.68rem]',
                     selectedVariant === variant.label
                       ? 'border-navy bg-navy text-white shadow-[0_6px_16px_rgb(7_31_61_/_0.2)]'
                       : 'border-gold/50 bg-warm-white text-navy hover:border-gold hover:bg-gold/15',
@@ -136,9 +136,9 @@ const ProductCardComponent = ({
             </div>
           </div>
         ) : null}
-        <div className="mt-auto pt-4 sm:pt-5">
+        <div className="mt-auto pt-3 sm:pt-5">
           <Button
-            className="w-full px-2 sm:px-4"
+            className="min-h-9 w-full gap-1 px-1 text-[0.68rem] min-[360px]:px-1.5 min-[360px]:text-xs sm:min-h-10 sm:gap-2 sm:px-4 sm:text-sm [&_span]:whitespace-normal [&_svg]:size-3.5 sm:[&_svg]:size-4"
             icon={FiShoppingBag}
             iconPosition="left"
             onClick={() => {
