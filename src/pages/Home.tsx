@@ -25,6 +25,26 @@ interface CategoryCard {
   count: number;
 }
 
+const homeCategoryOrder = [
+  'Premium Cakes',
+  'Pizzas',
+  'Three Milk Cakes',
+  'Burgers',
+  'Cakes',
+  'Shawarma & Wrap',
+  'Pastries',
+  'Hot Wings & Nuggets',
+  'Desserts',
+  'Spring Roll & Sandwich',
+  'Sweet',
+  'Pasta & Fries',
+  'Biscuits',
+  'Dry Cakes',
+  'Nimko',
+  'Bread',
+  'Rusk',
+] as const satisfies readonly ProductCategory[];
+
 const bakeryStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Bakery',
@@ -40,8 +60,18 @@ const Home = () => {
   const productGridRef = useRef<HTMLDivElement | null>(null);
 
   const categoryCards = useMemo<CategoryCard[]>(() => {
-    const categoryItems = productCategories.flatMap<CategoryCard>((category) => {
-      const categoryProducts = products.filter((product) => product.category === category);
+    const categoryProductsByName = new Map(
+      productCategories.map((category) => [
+        category,
+        products.filter((product) => product.category === category),
+      ]),
+    );
+    const orderedCategories = [
+      ...homeCategoryOrder,
+      ...productCategories.filter((category) => !homeCategoryOrder.includes(category)),
+    ];
+    const categoryItems = orderedCategories.flatMap<CategoryCard>((category) => {
+      const categoryProducts = categoryProductsByName.get(category) ?? [];
       const image = categoryProducts[0]?.image;
 
       return image
@@ -59,13 +89,13 @@ const Home = () => {
 
     return allProductsImage
       ? [
+          ...categoryItems,
           {
             label: 'All Products',
             value: 'All',
             image: allProductsImage,
             count: products.length,
           },
-          ...categoryItems,
         ]
       : categoryItems;
   }, []);
