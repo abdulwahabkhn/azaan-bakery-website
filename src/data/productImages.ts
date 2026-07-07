@@ -29,6 +29,7 @@ import chickenTikkaPizza from '@/assets/images/ChickenTikkaPizza.webp';
 import chocoBall from '@/assets/images/ChocoBall.webp';
 import chocolateCake from '@/assets/images/ChocolateCake.png';
 import chocolatePastry from '@/assets/images/ChocolatePastry.webp';
+import classicalThreeMilkCake from '@/assets/images/ClassicalThreeMilKCake.png';
 import creamyCheesyPasta from '@/assets/images/CreamyCheesyPasta.webp';
 import crunchyBitePizza from '@/assets/images/CrunchyBitePizza.webp';
 import crunchyPasta from '@/assets/images/CrunchyPasta.webp';
@@ -82,6 +83,7 @@ export const productImages: Readonly<Record<string, string>> = {
   'Dairy Milk Cake': dairyMilkCake,
   'Brownie Cake': brownieCake,
   'KitKat Cake': kitKatCake,
+  '3 Milk Classical Cake': classicalThreeMilkCake,
   '3 Milk Mango Cake': threeMilkMangoCake,
   'Lotus Cake': lotusCake,
   'Pista Cake': pistaCake,
@@ -163,6 +165,7 @@ export const productImages: Readonly<Record<string, string>> = {
 
 export const bakeryImages = {
   building: bakeryBuilding,
+  classicalThreeMilkCake,
   logo,
   threeMilkMangoCake,
 } as const;
