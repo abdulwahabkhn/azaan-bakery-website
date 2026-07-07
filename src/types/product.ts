@@ -4,6 +4,7 @@ export const productCategories = [
   'Cakes',
   'Pastries',
   'Desserts',
+  'Sweet',
   'Biscuits',
   'Dry Cakes',
   'Nimko',
@@ -36,6 +37,7 @@ export interface Product {
   price: number;
   description: string;
   image: string;
+  imageKey?: string;
   category: ProductCategory;
   tags: ProductCategory[];
   badge?: ProductBadge;

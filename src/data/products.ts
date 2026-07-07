@@ -11,6 +11,7 @@ interface MenuItem {
   category?: ProductCategory;
   description?: string;
   badge?: ProductBadge;
+  imageKey?: string;
   priceUnit?: 'kg';
 }
 
@@ -31,39 +32,45 @@ export const catalogData: {
   premiumCakes: [
     {
       name: 'Bounty Cake',
-      variants: [
-        { label: '1 Pound', price: 1200 },
-        { label: '2 Pound', price: 2400 },
-      ],
+      variants: [{ label: '2 Pound', price: 2400 }],
       category: 'Premium Cakes',
       description: 'Delicious coconut cake topped with bounty chocolate and creamy delight',
     },
     {
+      name: 'Ferero Cake',
+      variants: [{ label: '2 Pound', price: 2400 }],
+      category: 'Premium Cakes',
+      description: 'Premium chocolate cake finished with Ferero-style crunch and cream',
+    },
+    {
       name: 'Dairy Milk Cake',
-      variants: [
-        { label: '1 Pound', price: 1200 },
-        { label: '2 Pound', price: 2400 },
-      ],
+      variants: [{ label: '2 Pound', price: 2400 }],
       category: 'Premium Cakes',
       description: 'Smooth chocolate cake made with rich Dairy Milk chocolate',
     },
     {
       name: 'Brownie Cake',
-      variants: [
-        { label: '1 Pound', price: 1200 },
-        { label: '2 Pound', price: 2400 },
-      ],
+      variants: [{ label: '2 Pound', price: 2400 }],
       category: 'Premium Cakes',
       description: 'Fudgy brownie cake with intense chocolate flavor and premium finish',
     },
     {
       name: 'KitKat Cake',
-      variants: [
-        { label: '1 Pound', price: 1200 },
-        { label: '2 Pound', price: 2400 },
-      ],
+      variants: [{ label: '2 Pound', price: 2400 }],
       category: 'Premium Cakes',
       description: 'Irresistible chocolate cake loaded with layers of KitKat crunch and cream',
+    },
+    {
+      name: 'Red Velvet Cake',
+      variants: [{ label: '2 Pound', price: 2000 }],
+      category: 'Premium Cakes',
+      description: 'Soft red velvet cake with a smooth cream finish.',
+    },
+    {
+      name: 'Dream Cake',
+      variants: [{ label: '2 Pound', price: 2000 }],
+      category: 'Premium Cakes',
+      description: 'Rich layered dream cake with a smooth chocolate finish.',
     },
   ],
   fastFood: [
@@ -161,20 +168,6 @@ export const catalogData: {
       ],
     },
     {
-      name: 'Dream Cake',
-      variants: [
-        { label: '1 Pound', price: 1000 },
-        { label: '2 Pound', price: 2000 },
-      ],
-    },
-    {
-      name: 'Red Velvet Cake',
-      variants: [
-        { label: '1 Pound', price: 1000 },
-        { label: '2 Pound', price: 2000 },
-      ],
-    },
-    {
       name: 'Chocolate Cake',
       variants: [
         { label: '1 Pound', price: 700 },
@@ -215,6 +208,13 @@ export const catalogData: {
     { name: 'Donut', price: 100 },
   ],
   bakeryItems: [
+    {
+      name: 'Special Arabic Sweet',
+      price: 1200,
+      priceUnit: 'kg',
+      category: 'Sweet',
+      badge: 'New',
+    },
     { name: 'Special Almond Khatai', price: 1800, priceUnit: 'kg', category: 'Biscuits' },
     { name: 'Sugar Free Biscuit', price: 1400, priceUnit: 'kg', category: 'Biscuits' },
     { name: 'Coconut Biscuit', price: 1400, priceUnit: 'kg', category: 'Biscuits' },
@@ -359,7 +359,7 @@ const createProduct = (
     name: item.name,
     price: numericPrice,
     description: item.description ?? `${item.name} from Azaan Bakers.`,
-    image: getProductImage(item.name),
+    image: getProductImage(item.name, item.imageKey),
     category,
     tags: [category],
     ...(item.badge
@@ -373,6 +373,7 @@ const createProduct = (
     bestseller: false,
     seasonal: false,
     alt: `${item.name} from Azaan Bakers`,
+    ...(item.imageKey ? { imageKey: item.imageKey } : {}),
     ...(variants ? { variants } : {}),
     ...(item.priceUnit ? { priceUnit: item.priceUnit } : {}),
   };

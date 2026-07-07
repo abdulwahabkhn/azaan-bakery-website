@@ -115,7 +115,7 @@ const Products = () => {
             className="[&_.eyebrow]:text-gold [&_h2]:text-white [&_h2~p]:text-white/65"
             eyebrow="Premium Cakes"
             title="Premium Cake Collection"
-            description="Five rich chocolate-forward cakes for celebrations, gifting, and serious dessert cravings."
+            description="Seven rich premium cakes for celebrations, gifting, and serious dessert cravings."
           />
           <div className="mt-10">
             <ProductGrid
