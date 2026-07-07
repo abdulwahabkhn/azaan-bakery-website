@@ -9,7 +9,6 @@ export const routes = {
 
 export const navItems: readonly NavItem[] = [
   { label: 'Home', path: routes.home },
-  { label: 'Products', path: routes.products },
   { label: 'About', path: routes.about },
   { label: 'Contact', path: routes.contact },
 ] as const;

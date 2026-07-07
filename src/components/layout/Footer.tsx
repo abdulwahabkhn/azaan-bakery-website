@@ -50,7 +50,7 @@ export const Footer = () => (
           <ul className="mt-5 space-y-3 text-sm text-white/70">
             {productCategories.slice(0, 6).map((category) => (
               <li key={category}>
-                <Link className="transition hover:text-primary" to={routes.products}>
+                <Link className="transition hover:text-primary" to={`${routes.home}#categories`}>
                   {category}
                 </Link>
               </li>

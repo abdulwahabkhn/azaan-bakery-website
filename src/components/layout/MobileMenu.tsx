@@ -29,7 +29,6 @@ interface MobileNavItem {
 
 const mobileNavItems: readonly MobileNavItem[] = [
   { label: 'Home', path: routes.home, icon: FiHome, end: true },
-  { label: 'Products', path: routes.products, icon: FiShoppingBag },
   { label: 'About', path: routes.about, icon: FiInfo },
   { label: 'Contact', path: routes.contact, icon: FiMail },
 ] as const;

@@ -1,13 +1,13 @@
 import { FiArrowRight, FiCalendar } from 'react-icons/fi';
 
-import { ButtonLink } from '@/components/common/Button';
+import { ButtonAnchor, ButtonLink } from '@/components/common/Button';
 import { routes } from '@/constants/routes';
 
 export const HeroCTA = () => (
   <div className="flex flex-col gap-3 sm:flex-row">
-    <ButtonLink icon={FiArrowRight} size="lg" to={routes.products} variant="primary">
-      Explore cakes
-    </ButtonLink>
+    <ButtonAnchor href="#categories" icon={FiArrowRight} size="lg" variant="primary">
+      Explore categories
+    </ButtonAnchor>
     <ButtonLink
       icon={FiCalendar}
       iconPosition="left"

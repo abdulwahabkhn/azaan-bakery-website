@@ -8,9 +8,9 @@ export interface SeoPage {
 
 export const defaultSeo = {
   siteName: brand.name,
-  title: `${brand.name} Jaranwala | Cakes, Pastries & Three Milk Cake`,
+  title: 'Azaan Bakery Jaranwala | Cakes, Bakery Items & Fast Food',
   description:
-    'Azaan Bakery in Jaranwala creates premium three milk cakes, celebration cakes, pastries, biscuits, and fresh fast food.',
+    'Azaan Bakery Jaranwala offers fresh cakes, three milk cakes, pastries, pizzas, burgers, sweets, biscuits, bread, rusk, nimko, and bakery favorites.',
   image: '/social-preview.jpg',
 } as const;
 
