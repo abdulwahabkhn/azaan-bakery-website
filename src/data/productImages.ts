@@ -36,7 +36,7 @@ import chickenTikkaPizza from '@/assets/images/ChickenTikkaPizza.webp';
 import chocoBall from '@/assets/images/ChocoBall.webp';
 import chocolateCake from '@/assets/images/ChocolateCake.png';
 import chocolatePastry from '@/assets/images/ChocolatePastry.webp';
-import classicalThreeMilkCake from '@/assets/images/ClassicalThreeMilKCake.png';
+import classicalThreeMilkCake from '@/assets/images/ClassicalThreeMilkCake.webp';
 import coconutBiscuits from '@/assets/images/CoconutBuiscuits.webp';
 import cookies from '@/assets/images/Cookies.webp';
 import creamyCheesyPasta from '@/assets/images/CreamyCheesyPasta.webp';
