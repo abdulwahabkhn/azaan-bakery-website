@@ -51,24 +51,26 @@ export const ContactForm = ({ cartTotal = 0, initialOrderDetails = '' }: Contact
   const onSubmit = (values: ContactFormValues): void => {
     try {
       const total = cartTotal > 0 ? formatRupees(cartTotal) : 'To be confirmed';
-      const optionalMessage = values.optionalMessage
-        ? `\n\nMessage: ${values.optionalMessage}`
-        : '';
-      const hasOrderHeading = /^Order Details:/i.test(values.orderDetails.trim());
-      const hasOrderTotal = /^Total:/im.test(values.orderDetails);
+      const orderDetails = values.orderDetails.trim();
+      const hasOrderHeading = /^Order Details:/i.test(orderDetails);
+      const hasOrderTotal = /^Total:/im.test(orderDetails);
+      const orderBlock = [
+        ...(hasOrderHeading ? [] : ['Order Details:']),
+        orderDetails,
+        ...(hasOrderTotal ? [] : ['', `Total: ${total}`]),
+      ];
       const message = [
-        'Assalam o Alaikum Azaan Bakers,',
+        'Hello Azaan Bakers, I want to place an order.',
         '',
-        'I want to place an order.',
+        'Order Source: Website',
         '',
+        ...orderBlock,
+        '',
+        'Customer Details:',
         `Name: ${values.name}`,
         `Phone: ${values.phone}`,
         `Address: ${values.address}`,
-        '',
-        ...(hasOrderHeading ? [] : ['Order:']),
-        values.orderDetails,
-        ...(hasOrderTotal ? [] : ['', `Total: ${total}`]),
-        optionalMessage,
+        ...(values.optionalMessage ? ['', `Message: ${values.optionalMessage}`] : []),
       ].join('\n');
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 

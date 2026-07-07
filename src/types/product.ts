@@ -9,7 +9,6 @@ export const productCategories = [
   'Nimko',
   'Bread',
   'Rusk',
-  'Sweet',
   'Pizzas',
   'Burgers',
   'Shawarma & Wrap',

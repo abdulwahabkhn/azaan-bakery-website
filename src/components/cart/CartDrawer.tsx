@@ -30,22 +30,13 @@ interface CartLineProps {
 const CartLine = memo(({ item, onDecrease, onIncrease, onRemove }: CartLineProps) => (
   <li className="rounded-2xl border border-border bg-white/80 p-3 shadow-[0_10px_30px_rgb(15_23_42_/_0.07)] backdrop-blur">
     <div className="flex gap-3">
-      {item.image ? (
-        <img
-          alt={item.name}
-          className="size-20 shrink-0 rounded-xl border border-white object-cover shadow-sm"
-          decoding="async"
-          loading="lazy"
-          src={item.image}
-        />
-      ) : (
-        <div
-          className="grid size-20 shrink-0 place-items-center rounded-xl border border-border bg-warm-white p-2 text-center text-[0.6rem] font-bold uppercase tracking-[0.08em] text-gold-deep"
-          data-missing-image={item.name}
-        >
-          Image needed
-        </div>
-      )}
+      <img
+        alt={item.name}
+        className="size-20 shrink-0 rounded-xl border border-white object-cover shadow-sm"
+        decoding="async"
+        loading="lazy"
+        src={item.image}
+      />
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">

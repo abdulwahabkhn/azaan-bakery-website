@@ -24,16 +24,14 @@ const ProductCardComponent = ({
   product,
 }: ProductCardProps) => {
   const [hasAdded, setHasAdded] = useState(false);
-  const [hasImageError, setHasImageError] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(product.variants?.[0]?.label ?? '');
   const { addToCart } = useCart();
   const selectedPrice =
     product.variants?.find((variant) => variant.label === selectedVariant)?.price ?? product.price;
 
   useEffect(() => {
-    setHasImageError(false);
     setSelectedVariant(product.variants?.[0]?.label ?? '');
-  }, [product.image, product.variants]);
+  }, [product.variants]);
 
   useEffect(() => {
     if (!hasAdded) {
@@ -46,6 +44,10 @@ const ProductCardComponent = ({
       window.clearTimeout(timeoutId);
     };
   }, [hasAdded]);
+
+  if (!product.image) {
+    return null;
+  }
 
   return (
     <motion.article
@@ -63,29 +65,14 @@ const ProductCardComponent = ({
           premium ? 'aspect-[5/4] bg-cream' : 'aspect-[4/3] bg-light-blue',
         )}
       >
-        {product.image && !hasImageError ? (
-          <LazyImage
-            alt={product.name}
-            className="transition duration-700 group-hover:scale-105"
-            onError={() => setHasImageError(true)}
-            sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
-            src={product.image}
-          />
-        ) : (
-          <div
-            className="absolute inset-0 grid place-items-center bg-[linear-gradient(145deg,#FFFCF5,#FFF7E6)] p-5 text-center"
-            data-missing-image={product.name}
-          >
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-deep">
-                Image needed
-              </p>
-              <p className="mt-2 text-sm font-semibold text-navy/65">{product.name}</p>
-            </div>
-          </div>
-        )}
+        <LazyImage
+          alt={product.name}
+          className="transition duration-700 group-hover:scale-105"
+          sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+          src={product.image}
+        />
         {product.badge ? (
-          <span className="absolute left-2 top-2 z-10 max-w-[calc(100%-3.5rem)] truncate rounded-full border border-gold/45 bg-gold/92 px-2 py-1 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-navy shadow-luxury backdrop-blur sm:left-4 sm:top-4 sm:max-w-[calc(100%-5rem)] sm:px-3 sm:text-xs sm:tracking-[0.14em]">
+          <span className="absolute left-2 top-2 z-10 max-w-[calc(100%-3.5rem)] rounded-full border border-gold/45 bg-gold/92 px-2 py-1 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-navy shadow-luxury backdrop-blur sm:left-4 sm:top-4 sm:max-w-[calc(100%-5rem)] sm:px-3 sm:text-xs sm:tracking-[0.14em]">
             {product.badge}
           </span>
         ) : null}
@@ -110,7 +97,7 @@ const ProductCardComponent = ({
       <div className="flex flex-1 flex-col p-3 sm:p-5">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
           <div className="min-w-0">
-            <p className="inline-flex max-w-full truncate rounded-full bg-navy px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-white sm:text-[0.65rem] sm:tracking-[0.12em]">
+            <p className="inline-flex max-w-full break-words rounded-full bg-navy px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-white sm:text-[0.65rem] sm:tracking-[0.12em]">
               {product.category}
             </p>
             <h3 className="mt-2 break-words font-display text-base font-bold leading-tight text-navy sm:text-xl">
@@ -123,18 +110,18 @@ const ProductCardComponent = ({
               : formatCurrency(selectedPrice)}
           </p>
         </div>
-        <p className="mt-3 hidden text-sm text-muted md:line-clamp-2">{product.description}</p>
+        <p className="mt-3 hidden text-sm text-muted md:block">{product.description}</p>
         {product.variants && product.variants.length > 0 ? (
           <div className="mt-3">
             <p className="mb-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-muted">
-              Choose size
+              Choose option
             </p>
-            <div aria-label={`${product.name} size options`} className="flex flex-wrap gap-1.5">
+            <div aria-label={`${product.name} options`} className="flex flex-wrap gap-1.5">
               {product.variants.map((variant) => (
                 <button
                   aria-pressed={selectedVariant === variant.label}
                   className={cx(
-                    'focus-ring rounded-full border px-3 py-1.5 text-[0.68rem] font-bold transition',
+                    'focus-ring rounded-full border px-3 py-1.5 text-left text-[0.68rem] font-bold leading-tight transition',
                     selectedVariant === variant.label
                       ? 'border-navy bg-navy text-white shadow-[0_6px_16px_rgb(7_31_61_/_0.2)]'
                       : 'border-gold/50 bg-warm-white text-navy hover:border-gold hover:bg-gold/15',
@@ -143,7 +130,7 @@ const ProductCardComponent = ({
                   onClick={() => setSelectedVariant(variant.label)}
                   type="button"
                 >
-                  {variant.label}
+                  {variant.label} - {formatCartPrice(variant.price, product.priceUnit)}
                 </button>
               ))}
             </div>

@@ -84,17 +84,37 @@ export const catalogData: {
     { name: 'Platter Shawarma', price: 400 },
     { name: 'Cheesy Special Wrap', price: 600 },
     { name: 'Tortila Wrap', price: 550 },
-    { name: 'Fried Hot Wings (6pc)', price: 350 },
-    { name: 'Fried Hot Wings (12pc)', price: 650 },
-    { name: 'Oven Baked Wings (6pc)', price: 350 },
-    { name: 'Oven Baked Wings (12pc)', price: 650 },
-    { name: 'Chicken Nuggets (6pc)', price: 300 },
-    { name: 'Chicken Nuggets (12pc)', price: 600 },
-    { name: 'Honey Masted Wings (6pc)', price: 400 },
-    { name: 'Honey Masted Wings (12pc)', price: 700 },
-    { name: 'Azaan Special Roll (4pc)', price: 550 },
-    { name: 'Behari Roll (4pc)', price: 500 },
-    { name: 'Bar BQ Roll (4pc)', price: 500 },
+    {
+      name: 'Fried Hot Wings',
+      variants: [
+        { label: '6pc', price: 350 },
+        { label: '12pc', price: 650 },
+      ],
+    },
+    {
+      name: 'Oven Baked Wings',
+      variants: [
+        { label: '6pc', price: 350 },
+        { label: '12pc', price: 650 },
+      ],
+    },
+    {
+      name: 'Chicken Nuggets',
+      variants: [
+        { label: '6pc', price: 300 },
+        { label: '12pc', price: 600 },
+      ],
+    },
+    {
+      name: 'Honey Masted Wings',
+      variants: [
+        { label: '6pc', price: 400 },
+        { label: '12pc', price: 700 },
+      ],
+    },
+    { name: 'Azaan Special Roll', variants: [{ label: '4pc', price: 550 }] },
+    { name: 'Behari Roll', variants: [{ label: '4pc', price: 500 }] },
+    { name: 'Bar BQ Roll', variants: [{ label: '4pc', price: 500 }] },
     { name: 'Azaan Special Sandwich', price: 550 },
     { name: 'Pizza Sandwich', price: 500 },
     { name: 'Malai Boti Sandwich', price: 550 },
@@ -169,13 +189,6 @@ export const catalogData: {
       ],
     },
     {
-      name: 'Fresh Cream Cake',
-      variants: [
-        { label: '1 Pound', price: 600 },
-        { label: '2 Pound', price: 1200 },
-      ],
-    },
-    {
       name: 'Black Forest Cake',
       variants: [
         { label: '1 Pound', price: 700 },
@@ -208,10 +221,8 @@ export const catalogData: {
     { name: 'Dry Fruit Biscuit', price: 1400, priceUnit: 'kg', category: 'Biscuits' },
     { name: 'Cookies', price: 1200, priceUnit: 'kg', category: 'Biscuits' },
     { name: 'Khatai', price: 1200, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Mix Biscuits', price: 1000, priceUnit: 'kg', category: 'Biscuits' },
     { name: 'Cake Rusk', price: 1200, priceUnit: 'kg', category: 'Biscuits' },
     { name: 'Almond Cake Rusk', price: 1400, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Bakerkhani Mix', price: 900, priceUnit: 'kg', category: 'Biscuits' },
     { name: 'Fruit Cake Slice', price: 1000, priceUnit: 'kg', category: 'Biscuits' },
     {
       name: 'Almond Cake',
@@ -229,32 +240,47 @@ export const catalogData: {
         { label: '2 lb', price: 1600 },
       ],
     },
-    { name: 'Fruit Cake Box', price: 220, category: 'Dry Cakes' },
     { name: 'Plain Cake', price: 200, category: 'Dry Cakes' },
     { name: 'Dry Fruit Nimko', price: 1200, priceUnit: 'kg', category: 'Nimko', badge: 'New' },
     { name: 'Mix Nimko', price: 900, priceUnit: 'kg', category: 'Nimko', badge: 'New' },
     { name: 'Sandwich Bread', price: 280, category: 'Bread' },
-    { name: 'Milky Bread Large', price: 220, category: 'Bread' },
-    { name: 'Milky Bread Small', price: 110, category: 'Bread' },
-    { name: 'Plain Bread Large', price: 220, category: 'Bread' },
-    { name: 'Plain Bread Small', price: 110, category: 'Bread' },
+    {
+      name: 'Milky Bread',
+      category: 'Bread',
+      variants: [
+        { label: 'Small', price: 110 },
+        { label: 'Large', price: 220 },
+      ],
+    },
+    {
+      name: 'Plain Bread',
+      category: 'Bread',
+      variants: [
+        { label: 'Small', price: 110 },
+        { label: 'Large', price: 220 },
+      ],
+    },
     { name: 'Brown Bread', price: 150, category: 'Bread' },
-    { name: 'Burger Bread (8pc)', price: 220, category: 'Bread' },
-    { name: 'Shawarma Bread (4pc)', price: 90, category: 'Bread' },
+    { name: 'Shawarma Bread', variants: [{ label: '4pc', price: 90 }], category: 'Bread' },
     { name: 'Sheermall', price: 70, category: 'Bread' },
     { name: 'Sweet Bun', price: 50, category: 'Bread' },
-    { name: 'Slice Rusk 500g', price: 260, category: 'Rusk' },
-    { name: 'Burger Rusk 500g', price: 260, category: 'Rusk' },
-    { name: 'Cutt Rusk 500g', price: 260, category: 'Rusk' },
-    { name: 'Goll Rusk 500g', price: 260, category: 'Rusk' },
-    { name: 'Slice Rusk 300g', price: 160, category: 'Rusk' },
-    { name: 'Baby Rusk 300g', price: 160, category: 'Rusk' },
+    {
+      name: 'Slice Rusk',
+      category: 'Rusk',
+      variants: [
+        { label: '300g', price: 160 },
+        { label: '500g', price: 260 },
+      ],
+    },
+    { name: 'Burger Rusk', variants: [{ label: '500g', price: 260 }], category: 'Rusk' },
+    { name: 'Cutt Rusk', variants: [{ label: '500g', price: 260 }], category: 'Rusk' },
+    { name: 'Goll Rusk', variants: [{ label: '500g', price: 260 }], category: 'Rusk' },
+    { name: 'Baby Rusk', variants: [{ label: '300g', price: 160 }], category: 'Rusk' },
     { name: 'Brown Rusk', price: 160, category: 'Rusk' },
-    { name: 'Special Arabic Sweet', price: 1200, priceUnit: 'kg', category: 'Sweet', badge: 'New' },
   ],
   pizzas: {
     regular: {
-      sizes: { S: 500, M: 1050, L: 1450, XL: 2100 },
+      sizes: { Small: 500, Medium: 1050, Large: 1450, XL: 2100 },
       flavors: [
         'Chicken Fajita Pizza',
         'Chicken Tikka Pizza',
@@ -266,7 +292,7 @@ export const catalogData: {
       ],
     },
     special: {
-      sizes: { S: 550, M: 1100, L: 1500, XL: 2250 },
+      sizes: { Small: 550, Medium: 1100, Large: 1500, XL: 2250 },
       flavors: [
         'Azaan Special Pizza',
         'Chef Special Pizza',
@@ -277,12 +303,11 @@ export const catalogData: {
       ],
     },
     stuffed: {
-      sizes: { M: 1150, L: 1650, XL: 2400 },
+      sizes: { Medium: 1150, Large: 1650, XL: 2400 },
       flavors: [
         'Kabab Stuffer Pizza',
         'Crown Crust Pizza',
         'Royal Crust Pizza',
-        'Kabab Crust Pizza',
         'Chicken Cheese Stuffer',
       ],
     },
@@ -340,10 +365,10 @@ const createProduct = (
     ...(item.badge
       ? { badge: item.badge }
       : category === 'Premium Cakes'
-      ? { badge: 'Premium' as const }
-      : category === 'Three Milk Cakes'
-        ? { badge: 'Seasonal' as const }
-        : {}),
+        ? { badge: 'Premium' as const }
+        : category === 'Three Milk Cakes'
+          ? { badge: 'Seasonal' as const }
+          : {}),
     featured: category === 'Premium Cakes',
     bestseller: false,
     seasonal: false,
@@ -353,51 +378,57 @@ const createProduct = (
   };
 };
 
-export const premiumCakes = catalogData.premiumCakes.map((item, index) =>
-  createProduct(item, 'Premium Cakes', 'premium-cake', index),
-);
+const hasProductImage = (product: Product): boolean => Boolean(product.image);
 
-const fastFoodProducts = catalogData.fastFood.map((item, index) =>
-  createProduct(item, getFastFoodCategory(item.name), 'fast-food', index),
-);
+export const premiumCakes = catalogData.premiumCakes
+  .map((item, index) => createProduct(item, 'Premium Cakes', 'premium-cake', index))
+  .filter(hasProductImage);
 
-const cakeProducts = catalogData.cakes.map((item, index) =>
-  createProduct(item, item.category ?? 'Cakes', 'cake', index),
-);
+const fastFoodProducts = catalogData.fastFood
+  .map((item, index) => createProduct(item, getFastFoodCategory(item.name), 'fast-food', index))
+  .filter(hasProductImage);
 
-const pastryProducts = catalogData.pastries.map((item, index) =>
-  createProduct(item, 'Pastries', 'pastry', index),
-);
+const cakeProducts = catalogData.cakes
+  .map((item, index) => createProduct(item, item.category ?? 'Cakes', 'cake', index))
+  .filter(hasProductImage);
 
-const dessertProducts = catalogData.desserts.map((item, index) =>
-  createProduct(item, 'Desserts', 'dessert', index),
-);
+const pastryProducts = catalogData.pastries
+  .map((item, index) => createProduct(item, 'Pastries', 'pastry', index))
+  .filter(hasProductImage);
 
-const bakeryItemProducts = catalogData.bakeryItems.map((item, index) => {
-  if (!item.category) throw new Error(`No bakery category exists for "${item.name}".`);
-  return createProduct(item, item.category, 'bakery-item', index);
-});
+const dessertProducts = catalogData.desserts
+  .map((item, index) => createProduct(item, 'Desserts', 'dessert', index))
+  .filter(hasProductImage);
+
+const bakeryItemProducts = catalogData.bakeryItems
+  .map((item, index) => {
+    if (!item.category) throw new Error(`No bakery category exists for "${item.name}".`);
+    return createProduct(item, item.category, 'bakery-item', index);
+  })
+  .filter(hasProductImage);
 
 const pizzaProducts = Object.entries(catalogData.pizzas).flatMap(([style, pizzaMenu]) => {
   const variants = Object.entries(pizzaMenu.sizes).map(([label, price]) => ({ label, price }));
   const startingPrice = variants[0]?.price ?? 0;
 
-  return pizzaMenu.flavors.map<Product>((name, index) => ({
-    id: `pizza-${style}-${index + 1}-${slugify(name)}`,
-    slug: `pizza-${style}-${slugify(name)}`,
-    name,
-    price: startingPrice,
-    description: `${name} available in ${variants.map((variant) => variant.label).join(', ')} sizes.`,
-    image: getProductImage(name),
-    category: 'Pizzas',
-    tags: ['Pizzas'],
-    ...(style === 'special' ? { badge: 'Signature' as const } : {}),
-    featured: false,
-    bestseller: false,
-    seasonal: false,
-    alt: `${name} from Azaan Bakers`,
-    variants,
-  }));
+  return pizzaMenu.flavors
+    .map<Product>((name, index) => ({
+      id: `pizza-${style}-${index + 1}-${slugify(name)}`,
+      slug: `pizza-${style}-${slugify(name)}`,
+      name,
+      price: startingPrice,
+      description: `${name} available in ${variants.map((variant) => variant.label).join(', ')} sizes.`,
+      image: getProductImage(name),
+      category: 'Pizzas',
+      tags: ['Pizzas'],
+      ...(style === 'special' ? { badge: 'Signature' as const } : {}),
+      featured: false,
+      bestseller: false,
+      seasonal: false,
+      alt: `${name} from Azaan Bakers`,
+      variants,
+    }))
+    .filter(hasProductImage);
 });
 
 export const products: Product[] = [

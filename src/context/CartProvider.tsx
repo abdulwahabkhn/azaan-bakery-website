@@ -51,7 +51,7 @@ const readStoredCart = (): CartItem[] => {
       : parsedValue;
 
     return Array.isArray(migratedValue) && migratedValue.every(isCartItem)
-      ? migratedValue.filter((item) => !isRemovedProductName(item.name))
+      ? migratedValue.filter((item) => item.image && !isRemovedProductName(item.name))
       : [];
   } catch {
     return [];

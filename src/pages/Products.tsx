@@ -46,10 +46,15 @@ const Products = () => {
   const catalogSummary = useMemo(
     () => [
       { label: 'Total Items', value: products.length.toString() },
-      { label: 'Categories', value: productCategories.length.toString() },
+      {
+        label: 'Categories',
+        value: Object.values(categoryCounts)
+          .filter((count) => count > 0)
+          .length.toString(),
+      },
       { label: 'Premium Cakes', value: premiumCakes.length.toString() },
     ],
-    [],
+    [categoryCounts],
   );
 
   const filteredProducts = useMemo(
@@ -61,7 +66,6 @@ const Products = () => {
       }),
     [debouncedSearch, filters.category, filters.sort],
   );
-  const missingImageCount = useMemo(() => products.filter((product) => !product.image).length, []);
 
   return (
     <>
@@ -134,9 +138,6 @@ const Products = () => {
             title="Find a favorite for every craving."
             description="Browse cakes, pastries, desserts, pizzas, and savoury bakery classics, all arranged for quick ordering."
           />
-          <p className="-mt-6 mb-10 text-xs font-semibold uppercase tracking-[0.12em] text-muted">
-            Missing images: {missingImageCount}
-          </p>
           <FilterBar
             categoryCounts={categoryCounts}
             filters={filters}
