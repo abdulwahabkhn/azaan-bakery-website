@@ -12,7 +12,7 @@ export const brand = {
 
 export const businessInfo: BusinessInfo = {
   address: 'Azaan Bakery, Jaranwala, Pakistan',
-  phone: '+92 300 1234567',
+  phone: '03061923382',
   email: 'hello@azaanbakery.example',
   hours: ['Mon - Thu 10:00 AM - 10:00 PM', 'Fri - Sun 9:00 AM - 11:00 PM'],
 };
