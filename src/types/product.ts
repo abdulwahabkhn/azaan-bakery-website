@@ -16,6 +16,7 @@ export const productCategories = [
   'Hot Wings & Nuggets',
   'Pasta & Fries',
   'Spring Roll & Sandwich',
+  'Chaat & Salad',
 ] as const;
 
 export type ProductCategory = (typeof productCategories)[number];

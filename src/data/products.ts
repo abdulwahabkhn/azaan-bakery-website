@@ -208,6 +208,9 @@ export const catalogData: {
     { name: 'Donut', price: 100 },
   ],
   bakeryItems: [
+    { name: 'Samosa Chaat', price: 150, category: 'Chaat & Salad' },
+    { name: 'Arabic Sweet', price: 1200, priceUnit: 'kg', category: 'Sweet' },
+    { name: 'Russian Salad', price: 1000, priceUnit: 'kg', category: 'Chaat & Salad' },
     {
       name: 'Special Arabic Sweet',
       price: 1200,

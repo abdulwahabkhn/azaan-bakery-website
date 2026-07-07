@@ -38,6 +38,7 @@ const homeCategoryOrder = [
   'Spring Roll & Sandwich',
   'Sweet',
   'Pasta & Fries',
+  'Chaat & Salad',
   'Biscuits',
   'Dry Cakes',
   'Nimko',
