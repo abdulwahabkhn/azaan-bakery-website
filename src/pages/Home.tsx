@@ -1,14 +1,13 @@
 import { useMemo, useRef, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
+import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
 import { LazyImage } from '@/components/common/LazyImage';
 import { Reveal } from '@/components/common/Reveal';
 import { SEO } from '@/components/common/SEO';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { Hero } from '@/components/hero/Hero';
 import { ProductGrid } from '@/components/products/ProductGrid';
-import { brand } from '@/constants/brand';
-import { seoPages } from '@/constants/seo';
 import { products } from '@/data/products';
 import { useFavorites } from '@/hooks/useFavorites';
 import { productCategories } from '@/types/product';
@@ -45,15 +44,6 @@ const homeCategoryOrder = [
   'Bread',
   'Rusk',
 ] as const satisfies readonly ProductCategory[];
-
-const bakeryStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Bakery',
-  name: brand.name,
-  address: brand.location,
-  servesCuisine: 'Bakery, Cakes, Patisserie',
-  priceRange: '$$',
-} as const;
 
 const Home = () => {
   const { favorites, toggleFavorite } = useFavorites();
@@ -122,7 +112,12 @@ const Home = () => {
 
   return (
     <>
-      <SEO page={seoPages.home} structuredData={bakeryStructuredData} />
+      <SEO
+        title="Azaan Bakery Jaranwala | Cakes, Bakery Items & Fast Food"
+        description="Azaan Bakers in Jaranwala offers fresh cakes, three milk cakes, pastries, pizzas, burgers, sweets, biscuits, bread, rusk, nimko, and bakery favorites."
+        canonicalPath="/"
+      />
+      <LocalBusinessSchema />
       <Hero />
 
       <section

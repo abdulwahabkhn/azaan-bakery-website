@@ -4,9 +4,7 @@ import { FilterBar } from '@/components/products/FilterBar';
 import { ProductGrid } from '@/components/products/ProductGrid';
 import { PremiumProductFeature } from '@/components/products/PremiumProductFeature';
 import { GoldenWheat } from '@/components/common/GoldenWheat';
-import { SEO } from '@/components/common/SEO';
 import { SectionHeading } from '@/components/common/SectionHeading';
-import { seoPages } from '@/constants/seo';
 import { premiumCakes, products } from '@/data/products';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useDebouncedValue } from '@/hooks/useDebouncedValue';
@@ -69,7 +67,6 @@ const Products = () => {
 
   return (
     <>
-      <SEO page={seoPages.products} />
       <section
         data-nav-theme="blue"
         className="relative overflow-hidden bg-[linear-gradient(135deg,#071F3D_0%,#0B2D55_68%,#22B8F0_160%)] pb-14 pt-36 md:pt-44"

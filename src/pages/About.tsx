@@ -9,7 +9,6 @@ import { Story } from '@/components/about/Story';
 import { Timeline } from '@/components/about/Timeline';
 import { Testimonials } from '@/components/testimonials/Testimonials';
 import { routes } from '@/constants/routes';
-import { seoPages } from '@/constants/seo';
 import { bakeryImages } from '@/data/productImages';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -17,7 +16,11 @@ const awards = ['Private celebrations', 'Wedding ateliers', 'Corporate gifting']
 
 const About = () => (
   <>
-    <SEO page={seoPages.about} />
+    <SEO
+      title="About Azaan Bakers | Bakery in Jaranwala"
+      description="Learn about Azaan Bakers, a bakery in Jaranwala serving fresh cakes, bakery items, sweets, fast food, pizzas, burgers, and desserts."
+      canonicalPath="/about"
+    />
     <section
       data-nav-theme="blue"
       className="relative min-h-[78vh] overflow-hidden bg-cocoa pt-32 text-ivory md:pt-40"

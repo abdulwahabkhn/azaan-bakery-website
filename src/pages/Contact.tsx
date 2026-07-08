@@ -7,7 +7,6 @@ import { FAQ } from '@/components/contact/FAQ';
 import { MapPlaceholder } from '@/components/contact/MapPlaceholder';
 import { SEO } from '@/components/common/SEO';
 import { SectionHeading } from '@/components/common/SectionHeading';
-import { seoPages } from '@/constants/seo';
 import { useCart } from '@/hooks/useCart';
 import { formatCartSummary } from '@/utils/cart';
 import { isRemovedProductName } from '@/utils/removedProducts';
@@ -32,7 +31,11 @@ const Contact = () => {
 
   return (
     <>
-      <SEO page={seoPages.contact} />
+      <SEO
+        title="Contact Azaan Bakery Jaranwala | Order Cakes & Bakery Items"
+        description="Contact Azaan Bakers in Jaranwala for cakes, bakery items, fast food, sweets, pizzas, burgers, and delivery orders."
+        canonicalPath="/contact"
+      />
       <section
         data-nav-theme="blue"
         className="bg-[linear-gradient(135deg,#071F3D_0%,#0B2D55_72%,#22B8F0_160%)] pb-16 pt-36 md:pt-44"

@@ -1,35 +1,40 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 
-import { defaultSeo } from '@/constants/seo';
-import { env } from '@/config/env';
+import { siteConfig } from '@/data/siteConfig';
 
-import type { SeoPage } from '@/constants/seo';
+type SEOProps = {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  image?: string;
+};
 
-export interface SEOProps {
-  page: SeoPage;
-  structuredData?: Record<string, unknown>;
-}
-
-export const SEO = ({ page, structuredData }: SEOProps) => {
-  const canonicalUrl = `${env.appUrl}${page.path}`;
+export function SEO({
+  title = `${siteConfig.seoName} | Cakes, Bakery Items & Fast Food`,
+  description = siteConfig.description,
+  canonicalPath = '/',
+  image = '/Logo.webp',
+}: SEOProps) {
+  const canonicalUrl = `${siteConfig.url}${canonicalPath}`;
 
   return (
     <Helmet>
-      <title>{page.title}</title>
-      <meta name="description" content={page.description} />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={siteConfig.keywords.join(', ')} />
       <link rel="canonical" href={canonicalUrl} />
-      <meta property="og:site_name" content={defaultSeo.siteName} />
-      <meta property="og:title" content={page.title} />
-      <meta property="og:description" content={page.description} />
+
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={siteConfig.name} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={`${env.appUrl}${defaultSeo.image}`} />
+      <meta property="og:image" content={`${siteConfig.url}${image}`} />
+
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={page.title} />
-      <meta name="twitter:description" content={page.description} />
-      {structuredData ? (
-        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
-      ) : null}
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={`${siteConfig.url}${image}`} />
     </Helmet>
   );
-};
+}

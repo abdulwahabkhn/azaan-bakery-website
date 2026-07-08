@@ -4,15 +4,13 @@ import { ButtonLink } from '@/components/common/Button';
 import { SEO } from '@/components/common/SEO';
 import { routes } from '@/constants/routes';
 
-const notFoundSeo = {
-  title: 'Page Not Found | Azaan Bakery',
-  description: 'The requested Azaan Bakery page could not be found.',
-  path: '/404',
-} as const;
-
 const NotFound = () => (
   <>
-    <SEO page={notFoundSeo} />
+    <SEO
+      title="Page Not Found | Azaan Bakery"
+      description="The requested Azaan Bakery page could not be found."
+      canonicalPath="/404"
+    />
     <section
       data-nav-theme="light"
       className="grid min-h-screen place-items-center bg-cream px-6 py-32 text-center"

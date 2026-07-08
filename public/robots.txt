@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://azaan-bakery-website.vercel.app/sitemap.xml

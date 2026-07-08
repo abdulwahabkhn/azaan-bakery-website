@@ -1,0 +1,16 @@
+{
+  "name": "Azaan Bakers",
+  "short_name": "Azaan Bakers",
+  "description": "Azaan Bakery Jaranwala - fresh cakes, bakery items, fast food, sweets, and desserts.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF7E6",
+  "theme_color": "#071F3D",
+  "icons": [
+    {
+      "src": "/Logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
