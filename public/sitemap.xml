@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://azaan-bakery-website.vercel.app/</loc>
+    <loc>https://azaanbaker.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://azaan-bakery-website.vercel.app/about</loc>
+    <loc>https://azaanbaker.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://azaan-bakery-website.vercel.app/contact</loc>
+    <loc>https://azaanbaker.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

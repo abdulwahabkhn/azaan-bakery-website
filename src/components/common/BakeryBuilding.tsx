@@ -17,7 +17,7 @@ export const BakeryBuilding = () => {
             <SectionHeading
               eyebrow="Our home in Jaranwala"
               title="A neighborhood bakery, finished with care."
-              description="Visit Azaan Bakery for fresh bakes, celebration orders, and the familiar warmth of a local bakery made a little more special."
+              description="Visit Azaan Bakers for fresh bakes, celebration orders, and the familiar warmth of a local bakery made a little more special."
             />
             <p className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-chocolate">
               <FiMapPin aria-hidden="true" className="size-4 text-gold-deep" />
@@ -39,7 +39,7 @@ export const BakeryBuilding = () => {
             ) : (
               <div className="absolute inset-0 grid place-items-center p-8 text-center">
                 <p className="font-display text-xl font-bold text-navy">
-                  Bakery building image missing
+                  Bakers storefront image missing
                 </p>
               </div>
             )}

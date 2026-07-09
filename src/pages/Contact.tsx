@@ -32,7 +32,7 @@ const Contact = () => {
   return (
     <>
       <SEO
-        title="Contact Azaan Bakery Jaranwala | Order Cakes & Bakery Items"
+        title="Contact Azaan Bakers Jaranwala | Order Cakes & Bakery Items"
         description="Contact Azaan Bakers in Jaranwala for cakes, bakery items, fast food, sweets, pizzas, burgers, and delivery orders."
         canonicalPath="/contact"
       />

@@ -19,7 +19,7 @@ export const Story = () => (
         <SectionHeading
           eyebrow="Our story"
           title="A bakery built around patient detail."
-          description="Azaan Bakery began with celebration cakes made for family tables, then grew into a trusted Jaranwala bakery for families who care about texture, balance, and presentation."
+          description="Azaan Bakers began with celebration cakes made for family tables, then grew into a trusted Jaranwala bakery for families who care about texture, balance, and presentation."
         />
         <p className="mt-6 text-coffee/78">
           Every cake is treated like a composed object: measured soak, controlled crumb, restrained

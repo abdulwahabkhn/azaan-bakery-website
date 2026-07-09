@@ -17,7 +17,7 @@ export const Footer = () => (
     <GoldenWheat className="absolute -bottom-12 right-2 hidden h-64 w-40 -rotate-12 opacity-30 md:block" />
     <GoldenWheat className="absolute -left-12 top-20 hidden h-52 w-32 rotate-12 opacity-15 lg:block" />
     <div className="container-luxury py-16 md:py-20">
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.25fr_0.75fr_0.9fr_1fr_1.15fr]">
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1fr_0.7fr_1.25fr] xl:grid-cols-[1.15fr_0.7fr_1.35fr_0.9fr_1fr]">
         <div>
           <Link aria-label={`${brand.name} home`} className="inline-flex" to="/">
             <BrandLogo size="standard" />
@@ -47,10 +47,13 @@ export const Footer = () => (
           <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">
             Categories
           </h2>
-          <ul className="mt-5 space-y-3 text-sm text-white/70">
-            {productCategories.slice(0, 6).map((category) => (
+          <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-white/70 sm:grid-cols-2">
+            {productCategories.map((category) => (
               <li key={category}>
-                <Link className="transition hover:text-primary" to={`${routes.home}#categories`}>
+                <Link
+                  className="inline-flex min-w-0 break-words leading-snug transition hover:text-primary [overflow-wrap:anywhere]"
+                  to={`${routes.home}#categories`}
+                >
                   {category}
                 </Link>
               </li>
@@ -102,7 +105,7 @@ export const Footer = () => (
 
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">
-            Bakery Notes
+            Bakers Notes
           </h2>
           <p className="mt-5 text-sm text-white/70">
             Seasonal drops, tasting appointments, and limited celebration finishes.
@@ -122,7 +125,10 @@ export const Footer = () => (
         <p>
           Copyright {new Date().getFullYear()} {brand.name}. All rights reserved.
         </p>
-        <p>Taste of Love & Purity | Jaranwala</p>
+        <div className="flex flex-col gap-2 md:items-end">
+          <p>Taste of Love & Purity | Jaranwala</p>
+          <p>Developed By Abdul Wahab Khan</p>
+        </div>
       </div>
     </div>
   </footer>

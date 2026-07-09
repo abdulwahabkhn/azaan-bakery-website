@@ -17,7 +17,7 @@ const awards = ['Private celebrations', 'Wedding ateliers', 'Corporate gifting']
 const About = () => (
   <>
     <SEO
-      title="About Azaan Bakers | Bakery in Jaranwala"
+      title="About Azaan Bakers | Bakers in Jaranwala"
       description="Learn about Azaan Bakers, a bakery in Jaranwala serving fresh cakes, bakery items, sweets, fast food, pizzas, burgers, and desserts."
       canonicalPath="/about"
     />
@@ -37,7 +37,7 @@ const About = () => (
       <div className="container-luxury relative z-10 flex min-h-[calc(78vh-8rem)] items-center">
         <div className="max-w-3xl pb-20">
           <BrandLogo className="mb-7" size="standard" />
-          <p className="eyebrow text-primary before:bg-gold">About Azaan Bakery</p>
+          <p className="eyebrow text-primary before:bg-gold">About Azaan Bakers</p>
           <h1 className="mt-6 font-display text-5xl leading-tight md:text-7xl">
             A private bakery studio for intentional celebrations.
           </h1>

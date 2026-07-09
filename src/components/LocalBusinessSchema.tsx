@@ -13,6 +13,7 @@ export function LocalBusinessSchema() {
     logo: `${siteConfig.url}${siteConfig.logo}`,
     image: `${siteConfig.url}${siteConfig.logo}`,
     telephone: siteConfig.phoneTel,
+    email: siteConfig.email,
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.address,
@@ -23,6 +24,22 @@ export function LocalBusinessSchema() {
     sameAs: [siteConfig.instagram, siteConfig.facebook],
     servesCuisine: ['Bakery', 'Cakes', 'Fast Food', 'Pizza', 'Desserts'],
     priceRange: 'Rs',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday',
+        ],
+        opens: '06:00',
+        closes: '01:00',
+      },
+    ],
     areaServed: {
       '@type': 'City',
       name: 'Jaranwala',

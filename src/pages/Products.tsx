@@ -76,7 +76,7 @@ const Products = () => {
         <div className="container-luxury relative">
           <SectionHeading
             className="[&_.eyebrow]:text-gold [&_h2]:text-white [&_h2~p]:text-slate-300"
-            eyebrow="Azaan Bakery catalogue"
+            eyebrow="Azaan Bakers catalogue"
             title="Fresh favorites for every Jaranwala table."
             description="Discover premium cakes, pastries, desserts, pizzas, and savoury bakery favorites with clear size and serving prices."
           />

@@ -10,7 +10,7 @@ export const MapPlaceholder = () => (
         </div>
         <div className="absolute bottom-6 left-6 right-6 rounded-[1.2rem] border border-white/70 bg-warm-white/78 p-5 backdrop-blur-xl">
           <p className="text-sm font-bold uppercase tracking-[0.16em] text-fig">
-            Azaan Bakery | Jaranwala
+            Azaan Bakers | Jaranwala
           </p>
           <p className="mt-2 text-sm text-coffee/72">
             Exact pickup and delivery details are confirmed with each order.

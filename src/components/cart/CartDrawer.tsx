@@ -246,7 +246,7 @@ export const CartDrawer = () => {
                   Your cart is empty
                 </h3>
                 <p className="mt-2 max-w-xs text-sm text-muted">
-                  Add something delicious from the Azaan Bakery collection.
+                  Add something delicious from the Azaan Bakers collection.
                 </p>
                 <button
                   className="focus-ring mt-6 rounded-full border border-gold/50 bg-white px-5 py-2.5 text-sm font-bold text-gold-deep transition hover:border-gold hover:bg-gold/10"

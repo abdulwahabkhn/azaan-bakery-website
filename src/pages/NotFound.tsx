@@ -7,8 +7,8 @@ import { routes } from '@/constants/routes';
 const NotFound = () => (
   <>
     <SEO
-      title="Page Not Found | Azaan Bakery"
-      description="The requested Azaan Bakery page could not be found."
+      title="Page Not Found | Azaan Bakers"
+      description="The requested Azaan Bakers page could not be found."
       canonicalPath="/404"
     />
     <section

@@ -27,6 +27,8 @@ export const catalogData: {
   pastries: readonly MenuItem[];
   desserts: readonly MenuItem[];
   bakeryItems: readonly MenuItem[];
+  gifts: readonly MenuItem[];
+  bakarkhani: readonly MenuItem[];
   pizzas: Readonly<Record<'regular' | 'special' | 'stuffed', PizzaMenu>>;
 } = {
   premiumCakes: [
@@ -198,6 +200,12 @@ export const catalogData: {
   ],
   pastries: [
     { name: '3 Milk Pastry', price: 300 },
+    {
+      name: 'Mango Pastry',
+      price: 300,
+      description: 'Soft mango pastry from Azaan Bakers.',
+      imageKey: 'ThreeMilkMangoCake',
+    },
     { name: 'Lotus Pastry', price: 350 },
     { name: 'Brownie Pastry', price: 300 },
     { name: 'Chocolate Pastry', price: 120 },
@@ -280,6 +288,83 @@ export const catalogData: {
     { name: 'Goll Rusk', variants: [{ label: '500g', price: 260 }], category: 'Rusk' },
     { name: 'Baby Rusk', variants: [{ label: '300g', price: 160 }], category: 'Rusk' },
     { name: 'Brown Rusk', price: 160, category: 'Rusk' },
+  ],
+  gifts: [
+    {
+      name: 'Gift Box 1',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (1)',
+    },
+    {
+      name: 'Gift Box 2',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (2)',
+    },
+    {
+      name: 'Gift Box 3',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (3)',
+    },
+    {
+      name: 'Gift Box 4',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (4)',
+    },
+    {
+      name: 'Gift Box 5',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (5)',
+    },
+    {
+      name: 'Gift Box 6',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (6)',
+    },
+    {
+      name: 'Gift Box 7',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (7)',
+    },
+    {
+      name: 'Gift Box 8',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (8)',
+    },
+    {
+      name: 'Gift Box 9',
+      price: 1000,
+      category: 'Gifts',
+      badge: 'Celebration',
+      imageKey: 'Gift (9)',
+    },
+  ],
+  bakarkhani: [
+    { name: 'Butter Khari', price: 1200, priceUnit: 'kg', category: 'Bakarkhani', badge: 'New' },
+    { name: 'Butter Flower', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    { name: 'Coconut Puff', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    { name: 'Egg Puff', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    { name: 'Egg Stick', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    { name: 'Kalvaunji Puff', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    { name: 'Nan Khatai', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    { name: 'Puff Bites', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    { name: 'Sugar Sticks', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    { name: 'Til Puff', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
   ],
   pizzas: {
     regular: {
@@ -411,6 +496,20 @@ const bakeryItemProducts = catalogData.bakeryItems
   })
   .filter(hasProductImage);
 
+const giftProducts = catalogData.gifts
+  .map((item, index) => {
+    if (!item.category) throw new Error(`No gift category exists for "${item.name}".`);
+    return createProduct(item, item.category, 'gift', index);
+  })
+  .filter(hasProductImage);
+
+const bakarkhaniProducts = catalogData.bakarkhani
+  .map((item, index) => {
+    if (!item.category) throw new Error(`No bakarkhani category exists for "${item.name}".`);
+    return createProduct(item, item.category, 'bakarkhani', index);
+  })
+  .filter(hasProductImage);
+
 const pizzaProducts = Object.entries(catalogData.pizzas).flatMap(([style, pizzaMenu]) => {
   const variants = Object.entries(pizzaMenu.sizes).map(([label, price]) => ({ label, price }));
   const startingPrice = variants[0]?.price ?? 0;
@@ -441,6 +540,8 @@ export const products: Product[] = [
   ...pastryProducts,
   ...dessertProducts,
   ...bakeryItemProducts,
+  ...giftProducts,
+  ...bakarkhaniProducts,
   ...pizzaProducts,
   ...fastFoodProducts,
 ];

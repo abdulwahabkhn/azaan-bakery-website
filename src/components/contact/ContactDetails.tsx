@@ -35,7 +35,9 @@ export const ContactDetails = () => (
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted">{label}</p>
-              <p className="mt-1 text-sm font-semibold text-cocoa">{value}</p>
+              <p className="mt-1 break-words text-sm font-semibold text-cocoa [overflow-wrap:anywhere]">
+                {value}
+              </p>
             </div>
           </div>
         ))}

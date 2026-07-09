@@ -8,9 +8,9 @@ export interface SeoPage {
 
 export const defaultSeo = {
   siteName: brand.name,
-  title: 'Azaan Bakery Jaranwala | Cakes, Bakery Items & Fast Food',
+  title: 'Azaan Bakers Jaranwala | Cakes, Bakery Items & Fast Food',
   description:
-    'Azaan Bakery Jaranwala offers fresh cakes, three milk cakes, pastries, pizzas, burgers, sweets, biscuits, bread, rusk, nimko, and bakery favorites.',
+    'Azaan Bakers Jaranwala offers fresh cakes, three milk cakes, pastries, pizzas, burgers, sweets, biscuits, bread, rusk, nimko, and bakery favorites.',
   image: '/social-preview.jpg',
 } as const;
 
@@ -29,13 +29,13 @@ export const seoPages = {
   about: {
     title: `Our Story | ${brand.name}`,
     description:
-      'Discover the people, ingredients, and bakery craft behind Azaan Bakery Jaranwala.',
+      'Discover the people, ingredients, and bakery craft behind Azaan Bakers Jaranwala.',
     path: '/about',
   },
   contact: {
     title: `Contact & Orders | ${brand.name}`,
     description:
-      'Order cakes in Jaranwala, request a custom celebration cake, or connect with Azaan Bakery.',
+      'Order cakes in Jaranwala, request a custom celebration cake, or connect with Azaan Bakers.',
     path: '/contact',
   },
 } satisfies Record<string, SeoPage>;

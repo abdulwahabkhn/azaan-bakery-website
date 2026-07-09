@@ -15,7 +15,7 @@ export const timelineEvents: readonly TimelineEvent[] = [
     year: '2019',
     title: 'A private bakery studio opens',
     description:
-      'Azaan Bakery moved into a dedicated studio built around slow baking, custom finishes, and careful packaging.',
+      'Azaan Bakers moved into a dedicated studio built around slow baking, custom finishes, and careful packaging.',
   },
   {
     year: '2024',

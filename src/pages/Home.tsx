@@ -36,6 +36,8 @@ const homeCategoryOrder = [
   'Desserts',
   'Spring Roll & Sandwich',
   'Sweet',
+  'Gifts',
+  'Bakarkhani',
   'Pasta & Fries',
   'Chaat & Salad',
   'Biscuits',
@@ -113,7 +115,7 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Azaan Bakery Jaranwala | Cakes, Bakery Items & Fast Food"
+        title="Azaan Bakers Jaranwala | Cakes, Bakery Items & Fast Food"
         description="Azaan Bakers in Jaranwala offers fresh cakes, three milk cakes, pastries, pizzas, burgers, sweets, biscuits, bread, rusk, nimko, and bakery favorites."
         canonicalPath="/"
       />
@@ -129,14 +131,14 @@ const Home = () => {
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <p className="mx-auto inline-flex max-w-full rounded-full border border-gold/45 bg-warm-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-gold-deep shadow-sm [overflow-wrap:anywhere]">
-                Azaan Bakery Jaranwala
+                Azaan Bakers Jaranwala
               </p>
               <SectionHeading
                 align="center"
                 className="mt-5"
                 eyebrow="Fresh catalogue"
                 title="Explore Our Categories"
-                description="Fresh cakes, bakery items, fast food, pizzas, sweets, and more from Azaan Bakery Jaranwala."
+                description="Fresh cakes, bakery items, fast food, pizzas, sweets, gifts, and more from Azaan Bakers Jaranwala."
               />
             </div>
           </Reveal>

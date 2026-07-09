@@ -11,10 +11,10 @@ export const brand = {
 } as const;
 
 export const businessInfo: BusinessInfo = {
-  address: 'Azaan Bakery, Jaranwala, Pakistan',
+  address: 'Azaan Bakers, Jaranwala, Pakistan',
   phone: '03061923382',
-  email: 'hello@azaanbakery.example',
-  hours: ['Mon - Thu 10:00 AM - 10:00 PM', 'Fri - Sun 9:00 AM - 11:00 PM'],
+  email: 'azaanbakers@gmail.com',
+  hours: ['Daily 6:00 AM - 1:00 AM'],
 };
 
 export const brandSocialLinks: readonly SocialLink[] = [
@@ -39,7 +39,7 @@ export const socialLinks: readonly SocialLink[] = [
   },
   {
     label: 'Email Azaan Bakers',
-    href: 'mailto:hello@azaanbakery.example',
+    href: 'mailto:azaanbakers@gmail.com',
     icon: FiSend,
   },
 ] as const;

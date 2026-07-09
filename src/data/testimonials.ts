@@ -16,7 +16,7 @@ export const testimonials: readonly Testimonial[] = [
   {
     id: 'hamza-wedding',
     quote:
-      'Azaan Bakery handled our wedding cake with the discipline of a design studio and the warmth of family.',
+      'Azaan Bakers handled our wedding cake with the discipline of a design studio and the warmth of family.',
     author: 'Hamza A.',
     occasion: 'Wedding reception',
   },
