@@ -108,7 +108,9 @@ export const Footer = () => (
             Bakers Notes
           </h2>
           <p className="mt-5 text-sm text-white/70">
-            Seasonal drops, tasting appointments, and limited celebration finishes.
+            Freshly baked every day with quality ingredients, authentic taste, and a commitment to
+            excellence. Thank you for making Azaan Bakers a part of your special moments. We look
+            forward to serving you again!
           </p>
           <ul className="mt-4 space-y-2 text-xs text-white/55">
             {businessInfo.hours.map((hour) => (
