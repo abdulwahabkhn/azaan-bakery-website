@@ -17,8 +17,8 @@ const awards = ['Private celebrations', 'Wedding ateliers', 'Corporate gifting']
 const About = () => (
   <>
     <SEO
-      title="About Azaan Bakers | Bakers in Jaranwala"
-      description="Learn about Azaan Bakers, a bakery in Jaranwala serving fresh cakes, bakery items, sweets, fast food, pizzas, burgers, and desserts."
+      title="About Azaan Bakers | Jaranwala Bakery"
+      description="Learn about Azaan Bakers, a bakery in Jaranwala focused on fresh bakery items, cakes, pastries, and quality service."
       canonicalPath="/about"
     />
     <section

@@ -2,8 +2,8 @@ export const siteConfig = {
   name: 'Azaan Bakers',
   seoName: 'Azaan Bakers Jaranwala',
   description:
-    'Azaan Bakers in Jaranwala offers fresh cakes, three milk cakes, pastries, pizzas, burgers, sweets, biscuits, bread, rusk, nimko, and bakery favorites.',
-  url: 'https://azaanbaker.com',
+    'Azaan Bakers is a bakery in Jaranwala offering cakes, pastries, fast food, gifts, and bakery items.',
+  url: 'https://www.azaanbaker.com',
   logo: '/Logo.webp',
   phoneDisplay: '+92 306 1923382',
   phoneTel: '+923061923382',
@@ -13,7 +13,7 @@ export const siteConfig = {
   city: 'Jaranwala',
   region: 'Punjab',
   country: 'PK',
-  openingHours: '6:00 AM - 1:00 AM',
+  openingHours: '6:00 AM to 1:00 AM',
   instagram: 'https://www.instagram.com/azaanbakers/',
   facebook: 'https://www.facebook.com/p/Azaan-Bakers-61582505100966/',
   keywords: [

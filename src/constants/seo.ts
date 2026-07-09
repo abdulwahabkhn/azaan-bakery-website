@@ -8,9 +8,9 @@ export interface SeoPage {
 
 export const defaultSeo = {
   siteName: brand.name,
-  title: 'Azaan Bakers Jaranwala | Cakes, Bakery Items & Fast Food',
+  title: 'Azaan Bakers | Bakery in Jaranwala',
   description:
-    'Azaan Bakers Jaranwala offers fresh cakes, three milk cakes, pastries, pizzas, burgers, sweets, biscuits, bread, rusk, nimko, and bakery favorites.',
+    'Azaan Bakers is a bakery in Jaranwala offering cakes, pastries, fast food, gifts, and bakery items.',
   image: '/social-preview.jpg',
 } as const;
 
@@ -21,21 +21,21 @@ export const seoPages = {
     path: '/',
   },
   products: {
-    title: `Cakes, Pastries & Biscuits in Jaranwala | ${brand.name}`,
+    title: `Products | ${brand.name}`,
     description:
-      'Explore three milk cake in Jaranwala, birthday and wedding cakes, pastries, biscuits, coffee cakes, chocolate cakes, and fast food.',
+      'Explore cakes, pastries, fast food, gifts, bakarkhani, and bakery products from Azaan Bakers in Jaranwala.',
     path: '/products',
   },
   about: {
-    title: `Our Story | ${brand.name}`,
+    title: `About ${brand.name} | Jaranwala Bakery`,
     description:
-      'Discover the people, ingredients, and bakery craft behind Azaan Bakers Jaranwala.',
+      'Learn about Azaan Bakers, a bakery in Jaranwala focused on fresh bakery items, cakes, pastries, and quality service.',
     path: '/about',
   },
   contact: {
-    title: `Contact & Orders | ${brand.name}`,
+    title: `Contact ${brand.name} | Bakery in Jaranwala`,
     description:
-      'Order cakes in Jaranwala, request a custom celebration cake, or connect with Azaan Bakers.',
+      'Contact Azaan Bakers in Jaranwala. Email azaanbakers@gmail.com. Opening hours are 6:00 AM to 1:00 AM.',
     path: '/contact',
   },
 } satisfies Record<string, SeoPage>;

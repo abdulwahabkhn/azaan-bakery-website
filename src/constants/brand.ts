@@ -14,7 +14,7 @@ export const businessInfo: BusinessInfo = {
   address: 'Azaan Bakers, Jaranwala, Pakistan',
   phone: '03061923382',
   email: 'azaanbakers@gmail.com',
-  hours: ['Daily 6:00 AM - 1:00 AM'],
+  hours: ['Daily 6:00 AM to 1:00 AM'],
 };
 
 export const brandSocialLinks: readonly SocialLink[] = [

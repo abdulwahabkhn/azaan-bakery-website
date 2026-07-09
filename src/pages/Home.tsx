@@ -115,8 +115,8 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Azaan Bakers Jaranwala | Cakes, Bakery Items & Fast Food"
-        description="Azaan Bakers in Jaranwala offers fresh cakes, three milk cakes, pastries, pizzas, burgers, sweets, biscuits, bread, rusk, nimko, and bakery favorites."
+        title="Azaan Bakers | Bakery in Jaranwala"
+        description="Azaan Bakers is a bakery in Jaranwala offering cakes, pastries, fast food, gifts, and bakery items."
         canonicalPath="/"
       />
       <LocalBusinessSchema />

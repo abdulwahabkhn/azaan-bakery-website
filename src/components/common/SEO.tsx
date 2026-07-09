@@ -13,7 +13,7 @@ export function SEO({
   title = `${siteConfig.seoName} | Cakes, Bakery Items & Fast Food`,
   description = siteConfig.description,
   canonicalPath = '/',
-  image = '/Logo.webp',
+  image = '/social-preview.jpg',
 }: SEOProps) {
   const canonicalUrl = `${siteConfig.url}${canonicalPath}`;
 

@@ -4,6 +4,7 @@ import { FilterBar } from '@/components/products/FilterBar';
 import { ProductGrid } from '@/components/products/ProductGrid';
 import { PremiumProductFeature } from '@/components/products/PremiumProductFeature';
 import { GoldenWheat } from '@/components/common/GoldenWheat';
+import { SEO } from '@/components/common/SEO';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { premiumCakes, products } from '@/data/products';
 import { useFavorites } from '@/hooks/useFavorites';
@@ -67,6 +68,11 @@ const Products = () => {
 
   return (
     <>
+      <SEO
+        title="Products | Azaan Bakers"
+        description="Explore cakes, pastries, fast food, gifts, bakarkhani, and bakery products from Azaan Bakers in Jaranwala."
+        canonicalPath="/products"
+      />
       <section
         data-nav-theme="blue"
         className="relative overflow-hidden bg-[linear-gradient(135deg,#071F3D_0%,#0B2D55_68%,#22B8F0_160%)] pb-14 pt-36 md:pt-44"
@@ -75,8 +81,9 @@ const Products = () => {
         <GoldenWheat className="absolute -right-8 top-24 hidden h-52 w-32 rotate-12 opacity-20 md:block" />
         <div className="container-luxury relative">
           <SectionHeading
-            className="[&_.eyebrow]:text-gold [&_h2]:text-white [&_h2~p]:text-slate-300"
+            className="[&_.eyebrow]:text-gold [&_h1]:text-white [&_h1~p]:text-slate-300"
             eyebrow="Azaan Bakers catalogue"
+            headingLevel="h1"
             title="Fresh favorites for every Jaranwala table."
             description="Discover premium cakes, pastries, desserts, pizzas, and savoury bakery favorites with clear size and serving prices."
           />

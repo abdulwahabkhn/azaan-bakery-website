@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://azaanbaker.com/sitemap.xml
+Sitemap: https://www.azaanbaker.com/sitemap.xml

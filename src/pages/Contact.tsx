@@ -32,8 +32,8 @@ const Contact = () => {
   return (
     <>
       <SEO
-        title="Contact Azaan Bakers Jaranwala | Order Cakes & Bakery Items"
-        description="Contact Azaan Bakers in Jaranwala for cakes, bakery items, fast food, sweets, pizzas, burgers, and delivery orders."
+        title="Contact Azaan Bakers | Bakery in Jaranwala"
+        description="Contact Azaan Bakers in Jaranwala. Email azaanbakers@gmail.com. Opening hours are 6:00 AM to 1:00 AM."
         canonicalPath="/contact"
       />
       <section
@@ -42,8 +42,9 @@ const Contact = () => {
       >
         <div className="container-luxury">
           <SectionHeading
-            className="[&_.eyebrow]:text-gold [&_h2]:text-white [&_h2~p]:text-slate-300"
+            className="[&_.eyebrow]:text-gold [&_h1]:text-white [&_h1~p]:text-slate-300"
             eyebrow="Contact"
+            headingLevel="h1"
             title="Plan a cake with the studio."
             description="Share the occasion, date, flavor direction, and guest count. The team will guide the next step with care."
           />
