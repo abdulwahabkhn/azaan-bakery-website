@@ -21,6 +21,9 @@ const removedProductKeys = new Set([
   'boneless',
   'pizza-bite',
   'russian-salad-1kg',
+  'nan-khatai',
+  'nankhatai',
+  'butter-flower',
 ]);
 
 const normalizeProductIdentity = (value: string): string =>

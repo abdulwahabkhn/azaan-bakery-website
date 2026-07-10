@@ -47,7 +47,7 @@ const CartLine = memo(({ item, onDecrease, onIncrease, onRemove }: CartLineProps
               <p className="mt-1 text-xs font-semibold text-muted">{item.selectedVariant}</p>
             ) : null}
             <p className="mt-1 text-xs font-bold text-gold-deep">
-              {formatCartPrice(item.price, item.priceUnit)}
+              {formatCartPrice(item.price, item.selectedVariant ? undefined : item.priceUnit)}
             </p>
           </div>
           <button

@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { memo, useEffect, useState } from 'react';
 import { FiHeart, FiShoppingBag } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
-import { Button } from '@/components/common/Button';
+import { Button, ButtonAnchor } from '@/components/common/Button';
 import { LazyImage } from '@/components/common/LazyImage';
+import { env } from '@/config/env';
 import { useCart } from '@/hooks/useCart';
 import { formatCartPrice } from '@/utils/cart';
 import { formatCurrency, cx } from '@/utils/formatters';
@@ -28,6 +30,11 @@ const ProductCardComponent = ({
   const { addToCart } = useCart();
   const selectedPrice =
     product.variants?.find((variant) => variant.label === selectedVariant)?.price ?? product.price;
+  const isGift = product.category === 'Gifts';
+  const giftWhatsappHref = `https://wa.me/${env.whatsappNumber}?text=${encodeURIComponent(
+    `Hello Azaan Bakers, I want details about this gift item: ${product.name}`,
+  )}`;
+  const hasExactVariantPrice = Boolean(product.variants?.length);
 
   useEffect(() => {
     setSelectedVariant(product.variants?.[0]?.label ?? '');
@@ -104,11 +111,16 @@ const ProductCardComponent = ({
               {product.name}
             </h3>
           </div>
-          <p className="w-fit max-w-full shrink-0 rounded-full border border-gold/40 bg-gold/12 px-1.5 py-0.5 text-[0.62rem] font-bold leading-tight text-gold-deep [overflow-wrap:anywhere] min-[360px]:px-2 min-[360px]:text-[0.68rem] sm:px-2.5 sm:py-1 sm:text-sm">
-            {product.priceUnit || product.variants
-              ? formatCartPrice(selectedPrice, product.priceUnit)
-              : formatCurrency(selectedPrice)}
-          </p>
+          {isGift ? null : (
+            <p className="w-fit max-w-full shrink-0 rounded-full border border-gold/40 bg-gold/12 px-1.5 py-0.5 text-[0.62rem] font-bold leading-tight text-gold-deep [overflow-wrap:anywhere] min-[360px]:px-2 min-[360px]:text-[0.68rem] sm:px-2.5 sm:py-1 sm:text-sm">
+              {product.priceUnit || product.variants
+                ? formatCartPrice(
+                    selectedPrice,
+                    hasExactVariantPrice ? undefined : product.priceUnit,
+                  )
+                : formatCurrency(selectedPrice)}
+            </p>
+          )}
         </div>
         <p className="mt-3 hidden text-sm text-muted md:block">{product.description}</p>
         {product.variants && product.variants.length > 0 ? (
@@ -130,26 +142,42 @@ const ProductCardComponent = ({
                   onClick={() => setSelectedVariant(variant.label)}
                   type="button"
                 >
-                  {variant.label} - {formatCartPrice(variant.price, product.priceUnit)}
+                  {variant.label} - {formatCartPrice(variant.price)}
                 </button>
               ))}
             </div>
           </div>
         ) : null}
         <div className="mt-auto pt-3 sm:pt-5">
-          <Button
-            className="min-h-9 w-full gap-1 px-1 text-[0.68rem] min-[360px]:px-1.5 min-[360px]:text-xs sm:min-h-10 sm:gap-2 sm:px-4 sm:text-sm [&_span]:whitespace-normal [&_svg]:size-3.5 sm:[&_svg]:size-4"
-            icon={FiShoppingBag}
-            iconPosition="left"
-            onClick={() => {
-              addToCart(product, selectedVariant || undefined);
-              setHasAdded(true);
-            }}
-            size="sm"
-            variant="gold"
-          >
-            {hasAdded ? 'Added' : 'Add to cart'}
-          </Button>
+          {isGift ? (
+            <ButtonAnchor
+              aria-label={`Ask on WhatsApp about ${product.name}`}
+              className="min-h-9 w-full gap-1 px-1 text-[0.68rem] min-[360px]:px-1.5 min-[360px]:text-xs sm:min-h-10 sm:gap-2 sm:px-4 sm:text-sm [&_span]:whitespace-normal [&_svg]:size-3.5 sm:[&_svg]:size-4"
+              href={giftWhatsappHref}
+              icon={FaWhatsapp}
+              iconPosition="left"
+              rel="noopener noreferrer"
+              size="sm"
+              target="_blank"
+              variant="gold"
+            >
+              Ask on WhatsApp
+            </ButtonAnchor>
+          ) : (
+            <Button
+              className="min-h-9 w-full gap-1 px-1 text-[0.68rem] min-[360px]:px-1.5 min-[360px]:text-xs sm:min-h-10 sm:gap-2 sm:px-4 sm:text-sm [&_span]:whitespace-normal [&_svg]:size-3.5 sm:[&_svg]:size-4"
+              icon={FiShoppingBag}
+              iconPosition="left"
+              onClick={() => {
+                addToCart(product, selectedVariant || undefined);
+                setHasAdded(true);
+              }}
+              size="sm"
+              variant="gold"
+            >
+              {hasAdded ? 'Added' : 'Add to cart'}
+            </Button>
+          )}
           {hasAdded ? (
             <span className="sr-only" role="status">
               {product.name} added to cart.

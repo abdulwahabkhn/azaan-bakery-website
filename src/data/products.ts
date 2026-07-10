@@ -20,6 +20,14 @@ interface PizzaMenu {
   flavors: readonly string[];
 }
 
+const createWeightVariants = (pricePerKg: number): readonly ProductVariant[] => [
+  { label: '250gm', price: Math.round(pricePerKg * 0.25) },
+  { label: '500gm', price: Math.round(pricePerKg * 0.5) },
+  { label: '1kg', price: pricePerKg },
+];
+
+const bakarkhaniWeightVariants = createWeightVariants(900);
+
 export const catalogData: {
   premiumCakes: readonly MenuItem[];
   fastFood: readonly MenuItem[];
@@ -226,15 +234,69 @@ export const catalogData: {
       category: 'Sweet',
       badge: 'New',
     },
-    { name: 'Special Almond Khatai', price: 1800, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Sugar Free Biscuit', price: 1400, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Coconut Biscuit', price: 1400, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Dry Fruit Biscuit', price: 1400, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Cookies', price: 1200, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Khatai', price: 1200, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Cake Rusk', price: 1200, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Almond Cake Rusk', price: 1400, priceUnit: 'kg', category: 'Biscuits' },
-    { name: 'Fruit Cake Slice', price: 1000, priceUnit: 'kg', category: 'Biscuits' },
+    {
+      name: 'Special Almond Khatai',
+      price: 1800,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1800),
+      category: 'Biscuits',
+    },
+    {
+      name: 'Sugar Free Biscuit',
+      price: 1400,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1400),
+      category: 'Biscuits',
+    },
+    {
+      name: 'Coconut Biscuit',
+      price: 1400,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1400),
+      category: 'Biscuits',
+    },
+    {
+      name: 'Dry Fruit Biscuit',
+      price: 1400,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1400),
+      category: 'Biscuits',
+    },
+    {
+      name: 'Cookies',
+      price: 1200,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1200),
+      category: 'Biscuits',
+    },
+    {
+      name: 'Khatai',
+      price: 1200,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1200),
+      category: 'Biscuits',
+    },
+    {
+      name: 'Cake Rusk',
+      price: 1200,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1200),
+      category: 'Biscuits',
+    },
+    {
+      name: 'Almond Cake Rusk',
+      price: 1400,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1400),
+      category: 'Biscuits',
+    },
+    {
+      name: 'Fruit Cake Slice',
+      price: 1000,
+      priceUnit: 'kg',
+      variants: createWeightVariants(1000),
+      category: 'Biscuits',
+    },
     {
       name: 'Almond Cake',
       category: 'Dry Cakes',
@@ -355,16 +417,65 @@ export const catalogData: {
     },
   ],
   bakarkhani: [
-    { name: 'Butter Khari', price: 1200, priceUnit: 'kg', category: 'Bakarkhani', badge: 'New' },
-    { name: 'Butter Flower', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
-    { name: 'Coconut Puff', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
-    { name: 'Egg Puff', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
-    { name: 'Egg Stick', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
-    { name: 'Kalvaunji Puff', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
-    { name: 'Nan Khatai', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
-    { name: 'Puff Bites', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
-    { name: 'Sugar Sticks', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
-    { name: 'Til Puff', price: 1200, priceUnit: 'kg', category: 'Bakarkhani' },
+    {
+      name: 'Butter Khari',
+      price: 900,
+      priceUnit: 'kg',
+      variants: bakarkhaniWeightVariants,
+      category: 'Bakarkhani',
+      badge: 'New',
+    },
+    {
+      name: 'Coconut Puff',
+      price: 900,
+      priceUnit: 'kg',
+      variants: bakarkhaniWeightVariants,
+      category: 'Bakarkhani',
+    },
+    {
+      name: 'Egg Puff',
+      price: 900,
+      priceUnit: 'kg',
+      variants: bakarkhaniWeightVariants,
+      category: 'Bakarkhani',
+    },
+    {
+      name: 'Egg Sticks',
+      price: 900,
+      priceUnit: 'kg',
+      variants: bakarkhaniWeightVariants,
+      category: 'Bakarkhani',
+      imageKey: 'EggStick',
+    },
+    {
+      name: 'Kalaunji Puff',
+      price: 900,
+      priceUnit: 'kg',
+      variants: bakarkhaniWeightVariants,
+      category: 'Bakarkhani',
+      imageKey: 'KalvaunjiPuff',
+    },
+    {
+      name: 'Puff Bites',
+      price: 900,
+      priceUnit: 'kg',
+      variants: bakarkhaniWeightVariants,
+      category: 'Bakarkhani',
+    },
+    {
+      name: 'Sugar Sticks',
+      price: 900,
+      priceUnit: 'kg',
+      variants: bakarkhaniWeightVariants,
+      category: 'Bakarkhani',
+    },
+    {
+      name: 'Til Puff',
+      price: 900,
+      priceUnit: 'kg',
+      variants: bakarkhaniWeightVariants,
+      category: 'Bakarkhani',
+    },
   ],
   pizzas: {
     regular: {

@@ -15,17 +15,11 @@ export const createCartItemKey = (productId: string, selectedVariant?: string): 
 export const formatCartSummary = (cartItems: readonly CartItem[], cartTotal: number): string => {
   const itemLines = cartItems.map((item, index) => {
     const variant = item.selectedVariant ? ` (${item.selectedVariant})` : '';
-    const unit = item.priceUnit === 'kg' ? ' / kg' : '';
+    const unit = item.priceUnit === 'kg' && !item.selectedVariant ? ' / kg' : '';
     const subtotal = item.price * item.quantity;
 
     return `${index + 1}. ${item.name}${variant} x ${item.quantity} - ${formatRupees(subtotal)}${unit}`;
   });
 
-  return [
-    'Order Details:',
-    '',
-    ...itemLines,
-    '',
-    `Total: ${formatRupees(cartTotal)}`,
-  ].join('\n');
+  return ['Order Details:', '', ...itemLines, '', `Total: ${formatRupees(cartTotal)}`].join('\n');
 };

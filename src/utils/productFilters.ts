@@ -2,6 +2,10 @@ import { normalizeSearchTerm } from '@/utils/sanitize';
 
 import type { Product, ProductFilters } from '@/types/product';
 
+const categorySearchAliases: Partial<Record<Product['category'], string[]>> = {
+  Bakarkhani: ['Bakerkhani'],
+};
+
 const searchProduct = (product: Product, search: string): boolean => {
   const normalized = normalizeSearchTerm(search).toLowerCase();
 
@@ -15,6 +19,7 @@ const searchProduct = (product: Product, search: string): boolean => {
     product.category,
     product.badge ?? '',
     ...product.tags,
+    ...(categorySearchAliases[product.category] ?? []),
     ...(product.variants?.map((variant) => variant.label) ?? []),
   ]
     .join(' ')

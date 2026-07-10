@@ -107,7 +107,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
           price,
           quantity: 1,
           ...(selectedVariant ? { selectedVariant } : {}),
-          ...(product.priceUnit ? { priceUnit: product.priceUnit } : {}),
+          ...(product.priceUnit && !selectedVariant ? { priceUnit: product.priceUnit } : {}),
         },
       ];
     });

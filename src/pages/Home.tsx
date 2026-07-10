@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiAward, FiCheckCircle, FiShield, FiTruck } from 'react-icons/fi';
 
 import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
 import { LazyImage } from '@/components/common/LazyImage';
@@ -46,6 +46,29 @@ const homeCategoryOrder = [
   'Bread',
   'Rusk',
 ] as const satisfies readonly ProductCategory[];
+
+const serviceBenefits = [
+  {
+    title: 'Premium Quality',
+    description: 'Finest ingredients for best taste',
+    icon: FiAward,
+  },
+  {
+    title: 'Fast Delivery',
+    description: 'Quick & reliable delivery service',
+    icon: FiTruck,
+  },
+  {
+    title: 'Hygienic Kitchen',
+    description: 'Prepared in a clean and safe environment',
+    icon: FiShield,
+  },
+  {
+    title: '100% Satisfaction',
+    description: 'Customer satisfaction is our priority',
+    icon: FiCheckCircle,
+  },
+] as const;
 
 const Home = () => {
   const { favorites, toggleFavorite } = useFavorites();
@@ -128,6 +151,31 @@ const Home = () => {
         id="categories"
       >
         <div className="container-luxury">
+          <Reveal>
+            <div className="mb-12 rounded-2xl border border-gold/35 bg-warm-white/95 p-3 shadow-[0_18px_48px_rgb(7_31_61_/_0.1)] sm:p-4">
+              <div className="grid grid-cols-1 gap-2 min-[360px]:grid-cols-2 lg:grid-cols-4">
+                {serviceBenefits.map(({ description, icon: Icon, title }) => (
+                  <div
+                    className="flex min-w-0 items-center gap-3 rounded-xl border border-gold/20 bg-white/78 p-3 shadow-sm sm:p-4"
+                    key={title}
+                  >
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full border border-gold/35 bg-navy text-gold shadow-[0_10px_20px_rgb(7_31_61_/_0.14)] sm:size-11">
+                      <Icon aria-hidden="true" className="size-4 sm:size-5" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block break-words text-sm font-bold leading-tight text-navy [overflow-wrap:anywhere]">
+                        {title}
+                      </span>
+                      <span className="mt-1 block break-words text-xs font-medium leading-snug text-muted [overflow-wrap:anywhere]">
+                        {description}
+                      </span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <p className="mx-auto inline-flex max-w-full rounded-full border border-gold/45 bg-warm-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-gold-deep shadow-sm [overflow-wrap:anywhere]">
