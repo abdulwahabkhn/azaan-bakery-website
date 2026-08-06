@@ -286,6 +286,7 @@ export const catalogData: {
       priceUnit: 'kg',
       variants: createWeightVariants(1800),
       category: 'Biscuits',
+      imageKey: 'SpecialAlmondKhataiNew',
     },
     {
       name: 'Sugar Free Biscuit',
