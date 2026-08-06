@@ -40,7 +40,9 @@ const imageByLookupKey = Object.entries(imageModules).reduce<Record<string, stri
       return images;
     }
 
-    const existingPath = Object.entries(imageModules).find(([, existing]) => existing === existingUrl)?.[0];
+    const existingPath = Object.entries(imageModules).find(
+      ([, existing]) => existing === existingUrl,
+    )?.[0];
     const existingPriority = existingPath ? extensionPriority[getExtension(existingPath)] : 0;
     const nextPriority = extensionPriority[getExtension(path)];
 
@@ -70,6 +72,7 @@ const manualImageKeys = {
   'Burger Rusk 500g': 'BurgerRusk',
   'Chicken Burger': 'ChickenBuger',
   'Chicken Cheese Stuffer': 'KababCheeseStuffer',
+  'Chicken Nuggets': 'ChickenNuggets',
   'Creamy & Cheesy Pasta': 'CreamyCheesyPasta',
   'Cutt Rusk 500g': 'CuttRusk',
   'Fried Hot Wings': 'FriedHotWings6pc',
