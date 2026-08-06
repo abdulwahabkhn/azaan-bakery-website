@@ -11,7 +11,7 @@ export const productCategories = [
   'Spring Roll & Sandwich',
   'Sweet',
   'Pasta & Fries',
-  'Chaat & Salad',
+  'Chaat',
   'Biscuits',
   'Dry Cakes',
   'Nimko',

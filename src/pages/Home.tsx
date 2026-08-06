@@ -39,7 +39,7 @@ const homeCategoryOrder = [
   'Gifts',
   'Bakarkhani',
   'Pasta & Fries',
-  'Chaat & Salad',
+  'Chaat',
   'Biscuits',
   'Dry Cakes',
   'Nimko',
