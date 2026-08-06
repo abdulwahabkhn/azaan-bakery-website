@@ -220,7 +220,19 @@ export const catalogData: {
     { name: 'Pine Apple Pastry', price: 100 },
   ],
   desserts: [
-    { name: 'Choco Ball', price: 80 },
+    { name: 'Choco Ball', price: 80, imageKey: 'ChocoBallNew' },
+    {
+      name: 'Pink Muffin',
+      price: 100,
+      imageKey: 'PinkMuffin',
+      description: 'Fresh pink cream muffin from Azaan Bakers.',
+    },
+    {
+      name: 'Chocolate Muffin',
+      price: 100,
+      imageKey: 'ChocolateMuffin',
+      description: 'Fresh chocolate muffin from Azaan Bakers.',
+    },
     { name: 'Donut', price: 100 },
   ],
   bakeryItems: [
