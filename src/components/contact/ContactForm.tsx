@@ -5,6 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 import { Button } from '@/components/common/Button';
 import { formatRupees } from '@/utils/cart';
+import { trackCheckoutAttempt } from '@/utils/checkoutTracking';
 import { cx } from '@/utils/formatters';
 import { contactFormSchema, type ContactFormValues } from '@/utils/validation';
 
@@ -75,6 +76,7 @@ export const ContactForm = ({ cartTotal = 0, initialOrderDetails = '' }: Contact
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      trackCheckoutAttempt();
       setSubmission({
         status: 'success',
         message: 'Your order is ready in WhatsApp.',

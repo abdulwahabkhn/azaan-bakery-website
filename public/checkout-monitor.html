@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Checkout Monitor | Azaan Bakers</title>
+    <style>
+      :root {
+        font-family: system-ui, sans-serif;
+        color: #102a43;
+        background: #faf7ef;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      main {
+        max-width: 960px;
+        margin: auto;
+        padding: 48px 20px;
+      }
+      header {
+        border-top: 5px solid #c9a44c;
+        padding-top: 24px;
+      }
+      .brand {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 750;
+        color: #715b20;
+      }
+      h1 {
+        font-size: clamp(1.8rem, 5vw, 2.7rem);
+        margin: 0.5rem 0;
+      }
+      p {
+        line-height: 1.6;
+        color: #526477;
+      }
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: end;
+        background: white;
+        padding: 20px;
+        border: 1px solid #dedbd2;
+        border-radius: 16px;
+        margin: 26px 0;
+      }
+      label {
+        flex: 1;
+        min-width: 180px;
+        font-weight: 650;
+        font-size: 0.9rem;
+      }
+      input,
+      button {
+        font: inherit;
+        border-radius: 8px;
+        padding: 12px;
+      }
+      input {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        border: 1px solid #9daab7;
+      }
+      button {
+        border: 0;
+        background: #102a43;
+        color: white;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.55;
+        cursor: wait;
+      }
+      button:focus-visible,
+      input:focus-visible {
+        outline: 3px solid #c9a44c;
+        outline-offset: 3px;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .card {
+        padding: 22px;
+        background: white;
+        border: 1px solid #dedbd2;
+        border-radius: 16px;
+      }
+      .card span {
+        font-size: 0.85rem;
+        color: #526477;
+      }
+      .card strong {
+        display: block;
+        font-size: 2rem;
+        margin-top: 12px;
+      }
+      .table-wrap {
+        overflow: auto;
+        margin-top: 26px;
+        border: 1px solid #dedbd2;
+        border-radius: 16px;
+        background: white;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      caption {
+        text-align: left;
+        padding: 20px;
+        font-weight: 700;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 12px 20px;
+        border-top: 1px solid #ece9e1;
+      }
+      td:last-child,
+      th:last-child {
+        text-align: right;
+      }
+      #status {
+        min-height: 1.6em;
+      }
+      #status[data-error='true'] {
+        color: #9b2424;
+      }
+      .note {
+        font-size: 0.88rem;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      @media (max-width: 640px) {
+        main {
+          padding-top: 28px;
+        }
+        .cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .card {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="brand">Azaan Bakers · Website activity</div>
+        <h1>Checkout attempts</h1>
+        <p>
+          Customers who submit checkout to continue on WhatsApp. These are attempts, not confirmed
+          orders, payments, or delivered messages.
+        </p>
+      </header>
+      <form id="access">
+        <label for="key"
+          >Monitor access key<input
+            id="key"
+            type="password"
+            autocomplete="off"
+            required
+            minlength="32"
+            placeholder="Enter your private monitor key" /></label
+        ><button id="load" type="submit">Load counts</button
+        ><button id="lock" type="button" hidden>Lock</button>
+      </form>
+      <p id="status" role="status" aria-live="polite">Enter the access key to view live counts.</p>
+      <section id="report" aria-label="Checkout attempt counts" hidden>
+        <div class="cards">
+          <div class="card"><span>Today</span><strong id="today"></strong></div>
+          <div class="card"><span>Last 7 days</span><strong id="week"></strong></div>
+          <div class="card"><span>Last 30 days</span><strong id="month"></strong></div>
+          <div class="card"><span>Since tracking began</span><strong id="total"></strong></div>
+        </div>
+        <p class="note" id="coverage"></p>
+        <div class="table-wrap">
+          <table>
+            <caption>
+              Daily attempts · Pakistan time
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Attempts</th>
+              </tr>
+            </thead>
+            <tbody id="days"></tbody>
+          </table>
+        </div>
+      </section>
+      <p class="note">
+        The last 7 and 30 days include today. Counts refresh every 60 seconds while this page is
+        open. The key stays in this page’s memory and is cleared by Lock or closing the page. No
+        customer details are collected by this tracker.
+      </p>
+    </main>
+    <script src="/checkout-monitor.js" defer></script>
+  </body>
+</html>
