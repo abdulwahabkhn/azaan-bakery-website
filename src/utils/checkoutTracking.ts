@@ -1,13 +1,40 @@
-// Only an anonymous event ID is transmitted. Never pass form values here.
+export interface CheckoutOrderItem {
+  name: string;
+  category: string;
+  quantity: number;
+  unitPrice: number;
+  variant: string;
+}
+
+export interface CheckoutOrderDetails {
+  customerName: string;
+  orderDetails: string;
+  items: CheckoutOrderItem[];
+}
+
 let lastAttemptAt = -Infinity;
 
-export const trackCheckoutAttempt = (): void => {
+export const trackCheckoutAttempt = (order: CheckoutOrderDetails): void => {
   try {
     // Avoid double clicks while still allowing a later checkout attempt.
     const now = Date.now();
     if (now - lastAttemptAt < 5000) return;
     lastAttemptAt = now;
-    const body = JSON.stringify({ eventId: crypto.randomUUID() });
+    // Use an explicit allowlist; phone, address and optional message stay in WhatsApp.
+    const body = JSON.stringify({
+      eventId: crypto.randomUUID(),
+      order: {
+        customerName: order.customerName,
+        orderDetails: order.orderDetails,
+        items: order.items.map(({ name, category, quantity, unitPrice, variant }) => ({
+          name,
+          category,
+          quantity,
+          unitPrice,
+          variant,
+        })),
+      },
+    });
     const send = (): Promise<Response> =>
       fetch('/api/checkout-attempts', {
         method: 'POST',

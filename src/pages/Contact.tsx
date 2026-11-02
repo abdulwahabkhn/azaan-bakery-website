@@ -8,6 +8,7 @@ import { MapPlaceholder } from '@/components/contact/MapPlaceholder';
 import { SEO } from '@/components/common/SEO';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { useCart } from '@/hooks/useCart';
+import { products } from '@/data/products';
 import { formatCartSummary } from '@/utils/cart';
 import { isRemovedProductName } from '@/utils/removedProducts';
 
@@ -53,7 +54,17 @@ const Contact = () => {
 
       <section data-nav-theme="light" className="section-padding bg-warm-white pt-0">
         <div className="container-luxury grid gap-8 lg:grid-cols-[1fr_0.42fr]">
-          <ContactForm cartTotal={checkoutTotal} initialOrderDetails={orderDetails} />
+          <ContactForm
+            cartTotal={checkoutTotal}
+            initialOrderDetails={orderDetails}
+            monitorItems={checkoutItems.map((item) => ({
+              name: item.name,
+              category: products.find((product) => product.id === item.id)?.category ?? 'Other',
+              quantity: item.quantity,
+              unitPrice: item.price,
+              variant: item.selectedVariant ?? (item.priceUnit === 'kg' ? 'Per kg' : ''),
+            }))}
+          />
           <ContactDetails />
         </div>
       </section>

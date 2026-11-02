@@ -5,7 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 import { Button } from '@/components/common/Button';
 import { formatRupees } from '@/utils/cart';
-import { trackCheckoutAttempt } from '@/utils/checkoutTracking';
+import { trackCheckoutAttempt, type CheckoutOrderItem } from '@/utils/checkoutTracking';
 import { cx } from '@/utils/formatters';
 import { contactFormSchema, type ContactFormValues } from '@/utils/validation';
 
@@ -17,6 +17,7 @@ type SubmissionState =
 export interface ContactFormProps {
   initialOrderDetails?: string;
   cartTotal?: number;
+  monitorItems?: CheckoutOrderItem[];
 }
 
 const fieldClassName =
@@ -24,7 +25,11 @@ const fieldClassName =
 
 const whatsappNumber = '923061923382';
 
-export const ContactForm = ({ cartTotal = 0, initialOrderDetails = '' }: ContactFormProps) => {
+export const ContactForm = ({
+  cartTotal = 0,
+  initialOrderDetails = '',
+  monitorItems = [],
+}: ContactFormProps) => {
   const [submission, setSubmission] = useState<SubmissionState>({ status: 'idle' });
   const {
     formState: { errors, isSubmitting },
@@ -76,7 +81,12 @@ export const ContactForm = ({ cartTotal = 0, initialOrderDetails = '' }: Contact
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      trackCheckoutAttempt();
+      trackCheckoutAttempt({
+        customerName: values.name.trim(),
+        orderDetails,
+        // Edited requests may no longer match the cart. Do not show a stale price.
+        items: orderDetails === initialOrderDetails.trim() ? monitorItems : [],
+      });
       setSubmission({
         status: 'success',
         message: 'Your order is ready in WhatsApp.',
@@ -203,6 +213,10 @@ export const ContactForm = ({ cartTotal = 0, initialOrderDetails = '' }: Contact
         ) : null}
       </div>
 
+      <p className="mt-6 text-sm text-muted">
+        When you continue to WhatsApp, we save your name and order details privately for the bakery
+        to review for up to 90 days. Cart prices are estimates until confirmed.
+      </p>
       <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <Button
           disabled={isSubmitting}

@@ -112,6 +112,51 @@
         border-radius: 16px;
         background: white;
       }
+      .record {
+        background: white;
+        border: 1px solid #dedbd2;
+        border-radius: 16px;
+        padding: 20px;
+        margin: 14px 0;
+      }
+      .record-header,
+      .records-heading {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .record h3 {
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+      .record p {
+        margin: 8px 0;
+      }
+      .record ul {
+        padding-left: 22px;
+        line-height: 1.8;
+        overflow-wrap: anywhere;
+      }
+      .record pre {
+        font: inherit;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .price {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 650;
+        padding: 10px 0;
+      }
+      #records {
+        margin-top: 32px;
+      }
       table {
         width: 100%;
         border-collapse: collapse;
@@ -187,6 +232,19 @@
           <div class="card"><span>Since tracking began</span><strong id="total"></strong></div>
         </div>
         <p class="note" id="coverage"></p>
+        <section id="records" aria-labelledby="records-title">
+          <div class="records-heading">
+            <h2 id="records-title">Order details</h2>
+            <button id="newest" type="button" hidden>Back to newest</button>
+          </div>
+          <p class="note">
+            Customer names, product types, quantities and estimated prices for new checkout
+            attempts. Details are kept for 90 days. Earlier anonymous attempts have no recoverable
+            customer or order details.
+          </p>
+          <div id="orders"></div>
+          <button id="older" type="button" hidden>Older attempts</button>
+        </section>
         <div class="table-wrap">
           <table>
             <caption>
@@ -204,8 +262,8 @@
       </section>
       <p class="note">
         The last 7 and 30 days include today. Counts refresh every 60 seconds while this page is
-        open. The key stays in this page’s memory and is cleared by Lock or closing the page. No
-        customer details are collected by this tracker.
+        open. The key stays in this page’s memory and is cleared by Lock or closing the page. Keep
+        your access key private: it grants access to customer names and order details.
       </p>
     </main>
     <script src="/checkout-monitor.js" defer></script>
